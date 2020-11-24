@@ -12,7 +12,6 @@ public class ExerciseMember extends Member {
         }
     }
 
-
         @Override
         void setMembershipFee() {
 
