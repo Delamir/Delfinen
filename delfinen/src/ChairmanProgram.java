@@ -1,4 +1,4 @@
-public class RunProgram {
+public class ChairmanProgram {
 
     public static void main(String[] args) {
         Delfinen delfinen = new Delfinen();
