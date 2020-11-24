@@ -6,6 +6,7 @@ public abstract class Member {
     static final double SENIOR_DISCOUNT = 0.25;
     static final double JUNIOR_PRICE = 1000;
     static final double PASSIVE_PRICE = 500;
+
     abstract void setMembershipFee();
 
 }
