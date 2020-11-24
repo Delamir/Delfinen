@@ -1,6 +1,7 @@
 public class RunProgram {
 
     public static void main(String[] args) {
-        new Delfinen().run();
+        Delfinen delfinen = new Delfinen();
+        delfinen.run();
     }
 }

@@ -8,7 +8,7 @@ public class Delfinen {
     private final String[] MENU_POINT = {"1. Register member", "2. Total Revenue", "3. Show swim results"};
     ArrayList<Member> memberList = new ArrayList<>();
 
-    IO io = new IO();
+    IO io = new IO("MemberList");
     Menu menu = new Menu(MENU_HEADER, LEAD_TEXT, MENU_POINT);
 
     Scanner in = new Scanner(System.in);
@@ -47,6 +47,7 @@ public class Delfinen {
         name = in.nextLine();
         System.out.print("Enter age: ");
         age = (int) validNumberInput(0, 100, "Not a valid age, please input a valid age: ");
+
     }
 
     public void totalRevenue() {
@@ -76,6 +77,8 @@ public class Delfinen {
 
 
         public void run () {
+            io.readFile();
             showMenu();
+            io.saveFile();
         }
     }
