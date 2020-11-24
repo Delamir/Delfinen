@@ -1,9 +1,13 @@
+import java.util.ArrayList;
+
 public class Delfinen {
 
     private final String MENU_HEADER = "Delfinen";
     private final String LEAD_TEXT = "Please choose: ";
     private final String[] MENU_POINT = {"1. Register member", "2. Total Revenue", "3. Show swim results"};
+    ArrayList<Member> memberList = new ArrayList<>();
 
+    IO io = new IO();
     Menu menu = new Menu(MENU_HEADER, LEAD_TEXT, MENU_POINT);
 
     public void showMenu() {
