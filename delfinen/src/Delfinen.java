@@ -3,11 +3,11 @@ import java.util.Scanner;
 
 public class Delfinen {
 
-    private final String MENU_HEADER = "Delfinen";
-    private final String LEAD_TEXT = "Please choose: ";
-    private final String[] MENU_POINT = {"1. Register member", "2. Total Revenue", "3. Show swim results"};
+    private static final String MENU_HEADER = "Delfinen";
+    private static final String LEAD_TEXT = "Please choose: ";
+    private static final String[] MENU_POINT = {"1. Register member", "2. Total Revenue", "3. Show swim results"};
+    private static final String MEMBER_FILENAME = "MemberList.txt";
     ArrayList<Member> memberList = new ArrayList<>();
-    IO loadMemberList = new IO("MemberList.txt");
 
     Menu menu = new Menu(MENU_HEADER, LEAD_TEXT, MENU_POINT);
     Scanner in = new Scanner(System.in);
@@ -130,7 +130,12 @@ public class Delfinen {
 
 
     public void run() {
-        loadMemberList.readFile();
+        FileData.readFile(MEMBER_FILENAME);
+        //load coach list
+        //load cashier list
         showMenu();
+        FileData.saveFile(new FileData(memberList, MEMBER_FILENAME));
+        // gemme coach list
+        // Fuck cahsier
     }
 }

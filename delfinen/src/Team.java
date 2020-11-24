@@ -9,7 +9,6 @@ public class Team {
             "3. Appoint tournament participants", "4. Register swimming results"};
     ArrayList<Member> memberList = new ArrayList<>();
 
-    IO io = new IO("MemberList");
     Menu menu = new Menu(MENU_HEADER, LEAD_TEXT, MENU_POINT);
 
     Scanner in = new Scanner(System.in);

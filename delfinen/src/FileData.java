@@ -1,14 +1,13 @@
 import java.io.*;
+import java.util.ArrayList;
 
-public class IO {
+public class FileData implements Serializable {
 
     private String fileName;
+    private ArrayList saveAll;
 
-    public IO(String fileName) {
-        this.fileName = fileName;
-    }
-
-    public void setFileName(String fileName) {
+    public FileData(ArrayList saveAll, String fileName) {
+        this.saveAll = saveAll;
         this.fileName = fileName;
     }
 
@@ -16,16 +15,20 @@ public class IO {
         return fileName;
     }
 
-    public IO readFile() {
+    public ArrayList getSaveAll() {
+        return saveAll;
+    }
+
+    public static ArrayList readFile(String fileName) {
         try {
             FileInputStream fileIn = new FileInputStream(fileName);
             ObjectInputStream objIn = new ObjectInputStream(fileIn);
-            IO IO = (IO) objIn.readObject();
+            FileData save = (FileData) objIn.readObject();
             objIn.close();
             fileIn.close();
-            return IO;
+            return save.getSaveAll();
         } catch (FileNotFoundException e) {
-            return new IO(fileName) ;
+            return new ArrayList();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -34,14 +37,14 @@ public class IO {
         return null;
     }
 
-    public void saveFile() {
+    public static void saveFile(FileData save) {
         try {
-            FileOutputStream fileOut = new FileOutputStream(fileName);
+            FileOutputStream fileOut = new FileOutputStream(save.getFileName());
             ObjectOutputStream objOut = new ObjectOutputStream(fileOut);
-            objOut.writeObject(fileName);
+            objOut.writeObject(save);
             objOut.close();
             fileOut.close();
-            System.out.println("Information is now stored in " + fileName);
+            System.out.println("Information is now stored in " + save.getFileName());
         } catch (IOException e) {
             e.printStackTrace();
         }
