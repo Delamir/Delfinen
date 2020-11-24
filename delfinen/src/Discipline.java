@@ -2,5 +2,6 @@ public enum Discipline {
     FREESTYLE,
     BUTTERFLY,
     BACKSTROKE,
-    BREASTSTROKE
+    BREASTSTROKE,
+    DROWNING
 }
