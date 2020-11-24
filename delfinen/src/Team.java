@@ -61,6 +61,7 @@ public class Team {
         int hourMax = 18;
         int minuteMin = 1;
         int minuteMax = 59;
+
         String name, address;
         ArrayList<Discipline> disciplines;
 
