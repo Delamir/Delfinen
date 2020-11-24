@@ -1,7 +1,7 @@
 public class PassiveMember extends Member {
 
     public PassiveMember() {
-        super.membershipFee = 500;
+        membershipFee = PASSIVE_PRICE;
     }
 
     @Override
@@ -9,5 +9,3 @@ public class PassiveMember extends Member {
 
     }
 }
-
-
