@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 public class CompetitiveMember extends Member {
     ArrayList<Discipline> disciplines = new ArrayList<>();
+    ArrayList<Result> results = new ArrayList<>();
 
     public CompetitiveMember(int age, String name, ArrayList<Discipline> disciplines) {
         super(age, name);
@@ -20,7 +21,23 @@ public class CompetitiveMember extends Member {
 
     }
 
-    public void addResults() {
+    public void addResults(Discipline disp, int min, int sec, int milli, int dist) {
+        if (disciplines.contains(disp)) {
+            for (Result r : results) {
+                if (r.disp.equals(disp)) {
+                    if (r.min > min) {
+                    } else if (r.sec > sec) {
+                    } else if (r.milli > milli) {
+                    } else {
+                        System.out.println("Previous result was better!");
+                        return;
+                    }
+                }
+                System.out.printf("WOW!!!!!!!!!! You beat your all result by: %d", sec);
+                results.remove(r);
+                results.add(new Result(disp, min, sec, milli, dist));
+            }
+        }
     }
 
     @Override
