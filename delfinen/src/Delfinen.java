@@ -16,8 +16,10 @@ public class Delfinen {
                 break;
             case 2:
                 totalRevenue();
+                break;
             case 3:
                 results.showResults();
+                case
 
         }
     }

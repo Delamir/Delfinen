@@ -1,6 +1,6 @@
 public class Results {
 
-    void results() {
+    public Results() {
     }
 
     public void showResults() {
