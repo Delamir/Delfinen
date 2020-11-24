@@ -22,7 +22,6 @@ public class CompetitiveMember extends Member {
     }
 
     public void addResults() {
-        System.out.println("fuck af");
     }
 
     @Override
