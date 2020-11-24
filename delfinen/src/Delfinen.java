@@ -8,9 +8,7 @@ public class Delfinen {
     private final String[] MENU_POINT = {"1. Register member", "2. Total Revenue", "3. Show swim results"};
     ArrayList<Member> memberList = new ArrayList<>();
 
-    IO fileMemberList = new IO("MemberList.txt");
     Menu menu = new Menu(MENU_HEADER, LEAD_TEXT, MENU_POINT);
-
     Scanner in = new Scanner(System.in);
 
     public void showMenu() {
@@ -129,8 +127,6 @@ public class Delfinen {
 
 
     public void run() {
-        fileMemberList.readFile();
         showMenu();
-        fileMemberList.saveFile();
     }
 }

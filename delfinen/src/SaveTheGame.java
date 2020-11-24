@@ -1,11 +1,14 @@
 import java.io.*;
+import java.util.ArrayList;
 
-public class IO implements Serializable {
+public class SaveTheGame {
 
     private String fileName;
+    ArrayList<Member> memberList;
 
-    public IO(String fileName) {
+    public SaveTheGame(String fileName, ArrayList<Member> memberList) {
         this.fileName = fileName;
+        this.memberList = memberList;
     }
 
     public void setFileName(String fileName) {
@@ -16,16 +19,16 @@ public class IO implements Serializable {
         return fileName;
     }
 
-    public IO readFile() {
+    public ArrayList<Member> readFile() {
         try {
             FileInputStream fileIn = new FileInputStream(fileName);
             ObjectInputStream objIn = new ObjectInputStream(fileIn);
-            IO io = (IO) objIn.readObject();
+            SaveTheGame saveTheGame = (SaveTheGame) objIn.readObject();
             objIn.close();
             fileIn.close();
-            return io;
+            return saveTheGame.memberList;
         } catch (FileNotFoundException e) {
-            return new IO(fileName);
+            return new ArrayList<>();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
