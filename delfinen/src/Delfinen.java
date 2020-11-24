@@ -8,7 +8,7 @@ public class Delfinen {
     private final String[] MENU_POINT = {"1. Register member", "2. Total Revenue", "3. Show swim results"};
     ArrayList<Member> memberList = new ArrayList<>();
 
-    IO io = new IO("MemberList");
+    IO fileMemberList = new IO("MemberList.txt");
     Menu menu = new Menu(MENU_HEADER, LEAD_TEXT, MENU_POINT);
 
     Scanner in = new Scanner(System.in);
@@ -21,7 +21,7 @@ public class Delfinen {
             menu.printMenu();
             switch (menu.readChoice()) {
                 case 1:
-                    registerMember();
+                    memberList.add(registerMember());
                     break;
                 case 2:
                     totalRevenue();
@@ -38,16 +38,54 @@ public class Delfinen {
         }
     }
 
-    public void registerMember() {
+    public CompetitiveMember registerMember() {
         String name;
         int age;
+        int optionOne = 1;
+        int optionTwo = 2;
+        int activePassive;
+        int exerciseCompetitive;
+        boolean notDone = true;
+        ArrayList<Discipline> competitiveDisciplines = new ArrayList<>();
 
         System.out.println("Register new member");
         System.out.print("Enter the name: ");
         name = in.nextLine();
         System.out.print("Enter age: ");
         age = (int) validNumberInput(0, 100, "Not a valid age, please input a valid age: ");
+        System.out.print("Choose 1 to be an ACTIVE member, choose 2 to be a PASSIVE member: ");
+        activePassive = (int) validNumberInput(optionOne, optionTwo, "Not a valid number: ");
 
+        if(activePassive == optionOne) {
+            System.out.println("For a COMPETITIVE membership press 1");
+            System.out.println("For an EXERCISE membership press 2");
+            System.out.print("Make your choice: ");
+            exerciseCompetitive = (int) validNumberInput(optionOne, optionTwo, "Not a valid choice: ");
+            if(exerciseCompetitive == optionOne) {
+                while(notDone) {
+                    Menu disciplineMenu = new Menu("Choose your desired discipline", LEAD_TEXT,
+                            new String[] {"1. FREESTYLE", "2. BUTTERFLY", "3. BACKSTROKE", "4. BREASTSTROKE",
+                                    "5. DROWNING", "6. SPLASHING"});
+
+                    switch(menu.readChoice()) {
+                        case 1:
+                            competitiveDisciplines.add(Discipline.FREESTYLE);
+                            break;
+                        case 2:
+                            competitiveDisciplines.add(Discipline.)
+
+                    }
+                }
+                return new CompetitiveMember(age, name);
+            }
+
+
+        } else {
+            return new PassiveMember(age, name);
+
+        }
+
+        return null;
     }
 
     public void totalRevenue() {
@@ -65,10 +103,10 @@ public class Delfinen {
                 if (legalNumber >= numberFrom && legalNumber <= numberTo) {
                     validChoice = true;
                 } else {
-                    System.out.println(errorMessage);
+                    System.out.print(errorMessage);
                 }
             } else {
-                System.out.println(errorMessage);
+                System.out.print(errorMessage);
                 in.nextLine();
             }
         }
@@ -77,8 +115,8 @@ public class Delfinen {
 
 
         public void run () {
-            io.readFile();
+            fileMemberList.readFile();
             showMenu();
-            io.saveFile();
+            fileMemberList.saveFile();
         }
     }

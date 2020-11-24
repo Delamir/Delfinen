@@ -9,4 +9,9 @@ public abstract class Member {
 
     abstract void setMembershipFee();
 
+    public Member(int age, String name) {
+        this.age = age;
+        this.name = name;
+    }
+
 }

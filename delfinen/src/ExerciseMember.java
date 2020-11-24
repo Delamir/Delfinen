@@ -1,8 +1,7 @@
 public class ExerciseMember extends Member {
 
     public ExerciseMember(int age, String name) {
-        this.age = age;
-        this.name = name;
+        super(age, name);
         if (age > 60) {
             membershipFee = SENIOR_PRICE * SENIOR_DISCOUNT;
         } else if (age > 18) {

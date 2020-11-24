@@ -5,8 +5,7 @@ public class CompetitiveMember extends Member {
     ArrayList<Discipline> disciplines = new ArrayList<>();
 
     public CompetitiveMember(int age, String name, ArrayList<Discipline> disciplines) {
-        this.age = age;
-        this.name = name;
+        super(age, name);
         if (age > 60) {
             membershipFee = SENIOR_PRICE * SENIOR_DISCOUNT;
         } else if (age > 18) {
