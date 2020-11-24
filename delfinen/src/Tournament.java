@@ -23,6 +23,7 @@ public class Tournament {
 
 
     public String getName() {
+
         return name;
     }
 
