@@ -38,7 +38,7 @@ public class Delfinen {
         }
     }
 
-    public CompetitiveMember registerMember() {
+    public Member registerMember() {
         String name;
         int age;
         int optionOne = 1;
@@ -56,36 +56,50 @@ public class Delfinen {
         System.out.print("Choose 1 to be an ACTIVE member, choose 2 to be a PASSIVE member: ");
         activePassive = (int) validNumberInput(optionOne, optionTwo, "Not a valid number: ");
 
-        if(activePassive == optionOne) {
+        if (activePassive == optionOne) {
             System.out.println("For a COMPETITIVE membership press 1");
             System.out.println("For an EXERCISE membership press 2");
             System.out.print("Make your choice: ");
             exerciseCompetitive = (int) validNumberInput(optionOne, optionTwo, "Not a valid choice: ");
-            if(exerciseCompetitive == optionOne) {
-                while(notDone) {
+            if (exerciseCompetitive == optionOne) {
+                while (notDone) {
                     Menu disciplineMenu = new Menu("Choose your desired discipline", LEAD_TEXT,
-                            new String[] {"1. FREESTYLE", "2. BUTTERFLY", "3. BACKSTROKE", "4. BREASTSTROKE",
-                                    "5. DROWNING", "6. SPLASHING"});
+                            new String[]{"1. FREESTYLE", "2. BUTTERFLY", "3. BACKSTROKE", "4. BREASTSTROKE",
+                                    "5. DROWNING", "6. SPLASHING", "9. Finish"});
 
-                    switch(menu.readChoice()) {
+                    disciplineMenu.printMenu();
+                    switch (menu.readChoice()) {
                         case 1:
                             competitiveDisciplines.add(Discipline.FREESTYLE);
                             break;
                         case 2:
-                            competitiveDisciplines.add(Discipline.)
-
+                            competitiveDisciplines.add(Discipline.BUTTERFLY);
+                            break;
+                        case 3:
+                            competitiveDisciplines.add(Discipline.BACKSTROKE);
+                            break;
+                        case 4:
+                            competitiveDisciplines.add(Discipline.BREASTSTROKE);
+                            break;
+                        case 5:
+                            competitiveDisciplines.add(Discipline.DROWNING);
+                            break;
+                        case 6:
+                            competitiveDisciplines.add(Discipline.SPLASHING);
+                            break;
+                        case 9:
+                            notDone = false;
+                        default:
+                            System.out.println("Not a valid input, please try again");
                     }
                 }
-                return new CompetitiveMember(age, name);
+                return new CompetitiveMember(age, name, competitiveDisciplines);
+            } else {
+                return new ExerciseMember(age, name);
             }
-
-
         } else {
             return new PassiveMember(age, name);
-
         }
-
-        return null;
     }
 
     public void totalRevenue() {
@@ -114,9 +128,9 @@ public class Delfinen {
     }
 
 
-        public void run () {
-            fileMemberList.readFile();
-            showMenu();
-            fileMemberList.saveFile();
-        }
+    public void run() {
+        fileMemberList.readFile();
+        showMenu();
+        fileMemberList.saveFile();
     }
+}
