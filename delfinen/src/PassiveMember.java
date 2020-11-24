@@ -1,2 +1,2 @@
-public class PassiveMember {
+public class PassiveMember extends Membership {
 }
