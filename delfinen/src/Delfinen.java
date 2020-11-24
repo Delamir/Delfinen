@@ -7,6 +7,7 @@ public class Delfinen {
     private final String LEAD_TEXT = "Please choose: ";
     private final String[] MENU_POINT = {"1. Register member", "2. Total Revenue", "3. Show swim results"};
     ArrayList<Member> memberList = new ArrayList<>();
+    IO loadMemberList = new IO("MemberList.txt");
 
     Menu menu = new Menu(MENU_HEADER, LEAD_TEXT, MENU_POINT);
     Scanner in = new Scanner(System.in);
@@ -37,20 +38,22 @@ public class Delfinen {
     }
 
     public Member registerMember() {
-        String name;
         int age;
+        int validAgeMin = 0;
+        int validAgeMax = 100;
         int optionOne = 1;
         int optionTwo = 2;
         int activePassive;
         int exerciseCompetitive;
         boolean notDone = true;
+        String name;
         ArrayList<Discipline> competitiveDisciplines = new ArrayList<>();
 
         System.out.println("Register new member");
         System.out.print("Enter the name: ");
         name = in.nextLine();
         System.out.print("Enter age: ");
-        age = (int) validNumberInput(0, 100, "Not a valid age, please input a valid age: ");
+        age = (int) validNumberInput(validAgeMin, validAgeMax, "Not a valid age, please input a valid age: ");
         System.out.print("Choose 1 to be an ACTIVE member, choose 2 to be a PASSIVE member: ");
         activePassive = (int) validNumberInput(optionOne, optionTwo, "Not a valid number: ");
 
@@ -127,6 +130,7 @@ public class Delfinen {
 
 
     public void run() {
+        loadMemberList.readFile();
         showMenu();
     }
 }
