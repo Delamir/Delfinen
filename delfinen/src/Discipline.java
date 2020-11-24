@@ -3,5 +3,6 @@ public enum Discipline {
     BUTTERFLY,
     BACKSTROKE,
     BREASTSTROKE,
-    DROWNING
+    DROWNING,
+    SPLASHING
 }
