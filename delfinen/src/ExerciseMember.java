@@ -1,2 +1,2 @@
-public class ExerciseMember extends Membership {
+public class ExerciseMember extends Member{
 }

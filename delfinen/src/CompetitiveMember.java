@@ -1,2 +1,2 @@
-public class CompetitiveMember extends Membership {
+public class CompetitiveMember extends Member {
 }
