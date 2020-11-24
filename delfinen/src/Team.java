@@ -14,6 +14,10 @@ public class Team {
 
     Scanner in = new Scanner(System.in);
 
+    public Team(ArrayList<Member> memberList) {
+        this.memberList = memberList;
+    }
+
     public void showMenu() {
         boolean logOut = false;
         Results results = new Results();
