@@ -1,20 +1,27 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Delfinen {
+/**
+ * A class for the chairman to register new members
+ * @Author Christian & Sverri
+ */
+public class ChairmanRegister {
 
-    private static final String MENU_HEADER = "Delfinen";
+    private static final String MENU_HEADER = "Welcome Chairman";
     private static final String LEAD_TEXT = "Please choose: ";
-    private static final String[] MENU_POINT = {"1. Register member", "2. Total Revenue", "3. Show swim results"};
+    private static final String[] MENU_POINT = {"1. Register member", "9. Log out"};
     private static final String MEMBER_FILENAME = "MemberList.txt";
     ArrayList<Member> memberList = new ArrayList<>();
 
     Menu menu = new Menu(MENU_HEADER, LEAD_TEXT, MENU_POINT);
     Scanner in = new Scanner(System.in);
 
+    /**
+     * A method that shows the chairman menu, where he can pick the specific menu points
+     * @Author Christian
+     */
     public void showMenu() {
         boolean logOut = false;
-        Results results = new Results();
 
         while (!logOut) {
             menu.printMenu();
@@ -22,21 +29,21 @@ public class Delfinen {
                 case 1:
                     memberList.add(registerMember());
                     break;
-                case 2:
-                    totalRevenue();
-                    break;
-                case 3:
-                    results.showResults();
-                    break;
                 case 9:
+                    System.out.println("Logging out. Have a nice day");
                     logOut = true;
                 default:
                     System.out.print("Not a valid menu point, please try again: ");
-
             }
         }
     }
 
+    /**
+     * A method that register a member based on age, preferred activity, and discipline. Put the registered
+     * member into an arraylist
+     * @return a member based on the above
+     * @Author Christian & Sverri
+     */
     public Member registerMember() {
         int age;
         int validAgeMin = 0;
@@ -103,10 +110,14 @@ public class Delfinen {
         }
     }
 
-    public void totalRevenue() {
-
-    }
-
+    /**
+     * A method to check if the user input is legal
+     * @param numberFrom is the lowest number the input accept
+     * @param numberTo is the highest number the input accept
+     * @param errorMessage is the shown errormessage if the user input is illegal
+     * @return a legal input from the user
+     * @Author Christian
+     */
     public double validNumberInput(double numberFrom, double numberTo, String errorMessage) {
         boolean validChoice = false;
         double legalNumber = -1;
@@ -128,14 +139,13 @@ public class Delfinen {
         return legalNumber;
     }
 
-
+    /**
+     * A method that is able to execute the whole class, including loading and saving data input from the user
+     * @Author Christian & Sverri
+     */
     public void run() {
         FileData.readFile(MEMBER_FILENAME);
-        //load coach list
-        //load cashier list
         showMenu();
         FileData.saveFile(new FileData(memberList, MEMBER_FILENAME));
-        // gemme coach list
-        // Fuck cahsier
     }
 }
