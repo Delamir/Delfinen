@@ -1,11 +1,12 @@
 /**
  * A class that runs the entire program
+ * @author Sverri, Joachim, Patrick & Christian
  */
 public class RunProgramMenu {
 
     /**
      * A main method that runs a menu for the user to choose which part od the program they would like to access
-     * @Author Sverri, Joachim, Patrick & Christian
+     * @author Sverri, Joachim, Patrick & Christian
      */
     public static void main(String[] args) {
 
