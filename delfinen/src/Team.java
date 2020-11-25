@@ -1,3 +1,4 @@
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -44,6 +45,11 @@ public class Team {
         }
     }
 
+    /**
+     * A method for registering a tournament
+     * @Author Joachim
+     */
+
     public void registerTournament() {
         int year;
         int month;
@@ -58,7 +64,7 @@ public class Team {
         int dayMax = 31;
         int hourMin = 9;
         int hourMax = 18;
-        int minuteMin = 1;
+        int minuteMin = 0;
         int minuteMax = 59;
 
         String name, address;
@@ -86,6 +92,24 @@ public class Team {
     }
 
     public void registerResult() {
+        int min;
+        int sec;
+        int milli;
+        int minuteMin = 0;
+        int minuteMax = 59;
+        int secMin = 0;
+        int secMax = 59;
+        int milliMin = 0;
+        int milliMax = 999;
+
+        System.out.println("Enter minutes: ");
+        min = (int) ScannerMethods.validNumberInput(minuteMin, minuteMax, "Invalid minute. Please try again: ");
+        System.out.println("Enter seconds: ");
+        sec = (int) ScannerMethods.validNumberInput(secMin, secMax, "Invalid second. Please try again: ");
+        System.out.println("Enter milliseconds: ");
+        milli = (int) ScannerMethods.validNumberInput(milliMin, milliMax, "Invalid milliseconds. Please try again: ");
+        System.out.printf("The time was: %d" + "." + "%d" + "." + "%d", min, sec, milli);
+
     }
 }
 
