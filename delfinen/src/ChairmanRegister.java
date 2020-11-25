@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  * A class for the chairman to register new members
@@ -12,7 +11,6 @@ public class ChairmanRegister {
     private static final String[] MENU_POINT = {"1. Register member", "9. Log out"};
 
     ArrayList<Member> memberList;
-
     Menu menu = new Menu(MENU_HEADER, LEAD_TEXT, MENU_POINT);
 
     public ChairmanRegister(ArrayList<Member> memberList) {
@@ -115,14 +113,11 @@ public class ChairmanRegister {
         }
     }
 
-
-
     /**
      * A method that is able to execute the whole class, including loading and saving data input from the user
      * @author Christian & Sverri
      */
     public void run() {
         showMenu();
-
     }
 }
