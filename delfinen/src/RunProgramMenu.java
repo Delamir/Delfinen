@@ -35,7 +35,7 @@ public class RunProgramMenu {
                     new ChairmanRegister(memberList).run();
                     break;
                 case 2:
-                    new Team().run();
+                    new Team(memberList, tournamentList).run();
                     break;
                 case 3:
                     break;
