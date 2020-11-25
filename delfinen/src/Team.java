@@ -8,11 +8,14 @@ public class Team {
     private final String[] MENU_POINT = {"1. Register tournament", "2. Show swim results",
             "3. Appoint tournament participants", "4. Register swimming results"};
     ArrayList<Member> memberList = new ArrayList<>();
+    ArrayList<Tournament> tournamentList = new ArrayList<>();
 
     Menu menu = new Menu(MENU_HEADER, LEAD_TEXT, MENU_POINT);
 
-    public Team(ArrayList<Member> memberList) {
+
+    public Team(ArrayList<Member> memberList, ArrayList<Tournament> tournamentList) {
         this.memberList = memberList;
+        this.tournamentList = tournamentList;
     }
 
     public Team() {
@@ -48,6 +51,7 @@ public class Team {
 
     /**
      * A method for registering a tournament
+     *
      * @Author Joachim
      */
 
@@ -109,7 +113,7 @@ public class Team {
         sec = (int) ScannerMethods.validNumberInput(secMin, secMax, "Invalid second. Please try again: ");
         System.out.println("Enter milliseconds: ");
         milli = (int) ScannerMethods.validNumberInput(milliMin, milliMax, "Invalid milliseconds. Please try again: ");
-        System.out.printf("The time was: %d" + "." + "%d" + "." + "%d", min, sec, milli);
+        System.out.printf("The time was: %02d" + ":" + "%02d" + ":" + "%04d", min, sec, milli);
 
     }
 
