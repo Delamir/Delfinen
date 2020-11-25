@@ -5,7 +5,7 @@
 public class RunProgramMenu {
 
     /**
-     * A main method that runs a menu for the user to choose which part od the program they would like to access
+     * A main method that runs a menu for the user to choose which part of the program they would like to access
      * @author Sverri, Joachim, Patrick & Christian
      */
     public static void main(String[] args) {
