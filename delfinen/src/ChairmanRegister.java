@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 /**
  * A class for the chairman to register new members
- * @Author Christian & Sverri
+ * @author Christian & Sverri
  */
 public class ChairmanRegister {
 
@@ -18,7 +18,7 @@ public class ChairmanRegister {
 
     /**
      * A method that shows the chairman menu, where he can pick the specific menu points
-     * @Author Christian
+     * @author Christian
      */
     public void showMenu() {
         boolean logOut = false;
@@ -42,7 +42,7 @@ public class ChairmanRegister {
      * A method that register a member based on age, preferred activity, and discipline. Put the registered
      * member into an arraylist
      * @return a member based on the above
-     * @Author Christian & Sverri
+     * @author Christian & Sverri
      */
     public Member registerMember() {
         int age;
@@ -116,7 +116,7 @@ public class ChairmanRegister {
      * @param numberTo is the highest number the input accept
      * @param errorMessage is the shown errormessage if the user input is illegal
      * @return a legal input from the user
-     * @Author Christian
+     * @author Christian
      */
     public double validNumberInput(double numberFrom, double numberTo, String errorMessage) {
         boolean validChoice = false;
@@ -141,7 +141,7 @@ public class ChairmanRegister {
 
     /**
      * A method that is able to execute the whole class, including loading and saving data input from the user
-     * @Author Christian & Sverri
+     * @author Christian & Sverri
      */
     public void run() {
         FileData.readFile(MEMBER_FILENAME);
