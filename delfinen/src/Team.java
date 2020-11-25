@@ -16,9 +16,7 @@ public class Team {
     public Team(ArrayList<Member> memberList, ArrayList<Tournament> tournamentList) {
         this.memberList = memberList;
         this.tournamentList = tournamentList;
-    }
 
-    public Team() {
     }
 
     public void showMenu() {
@@ -52,7 +50,7 @@ public class Team {
     /**
      * A method for registering a tournament
      *
-     * @Author Joachim
+     * @author Joachim
      */
 
     public void registerTournament() {
@@ -61,16 +59,16 @@ public class Team {
         int day;
         int hour;
         int minute;
-        int yearMin = 2020;
-        int yearMax = 3000;
-        int monthMin = 1;
-        int monthMax = 12;
-        int dayMin = 1;
-        int dayMax = 31;
-        int hourMin = 9;
-        int hourMax = 18;
-        int minuteMin = 0;
-        int minuteMax = 59;
+        final int yearMin = 2020;
+        final int yearMax = 3000;
+        final int monthMin = 1;
+        final int monthMax = 12;
+        final int dayMin = 1;
+        final int dayMax = 31;
+        final int hourMin = 9;
+        final int hourMax = 18;
+        final int minuteMin = 0;
+        final int minuteMax = 59;
 
         String name, address;
         ArrayList<Discipline> disciplines;
@@ -100,12 +98,12 @@ public class Team {
         int min;
         int sec;
         int milli;
-        int minuteMin = 0;
-        int minuteMax = 59;
-        int secMin = 0;
-        int secMax = 59;
-        int milliMin = 0;
-        int milliMax = 999;
+        final int minuteMin = 0;
+        final int minuteMax = 59;
+        final int secMin = 0;
+        final int secMax = 59;
+        final int milliMin = 0;
+        final int milliMax = 999;
 
         System.out.println("Enter minutes: ");
         min = (int) ScannerMethods.validNumberInput(minuteMin, minuteMax, "Invalid minute. Please try again: ");

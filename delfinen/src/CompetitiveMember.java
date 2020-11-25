@@ -10,7 +10,7 @@ public class CompetitiveMember extends Member {
      * @param age determines if the member is senior, junior or hella old
      * @param name checks the name of the competitive member
      * @param disciplines checks the disciplines that the competitive member is a part of
-     * @Author Sverri & Joachim
+     * @author Sverri & Joachim
      */
     public CompetitiveMember(int age, String name, ArrayList<Discipline> disciplines) {
         super(age, name);
@@ -35,7 +35,7 @@ public class CompetitiveMember extends Member {
      * @param sec the seconds
      * @param milli the milliseconds
      * @param dist the distance of the discipline
-     * @Author Sverri og Joachim
+     * @author Sverri og Joachim
      */
     public void addResults(Discipline disp, int min, int sec, int milli, int dist) {
         if (disciplines.contains(disp)) {
