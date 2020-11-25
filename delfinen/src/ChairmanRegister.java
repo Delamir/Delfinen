@@ -10,11 +10,14 @@ public class ChairmanRegister {
     private static final String MENU_HEADER = "Welcome Chairman";
     private static final String LEAD_TEXT = "Please choose: ";
     private static final String[] MENU_POINT = {"1. Register member", "9. Log out"};
-    private static final String MEMBER_FILENAME = "MemberList.txt";
-    ArrayList<Member> memberList = new ArrayList<>();
+
+    ArrayList<Member> memberList;
 
     Menu menu = new Menu(MENU_HEADER, LEAD_TEXT, MENU_POINT);
-    Scanner in = new Scanner(System.in);
+
+    public ChairmanRegister(ArrayList<Member> memberList) {
+        this.memberList = memberList;
+    }
 
     /**
      * A method that shows the chairman menu, where he can pick the specific menu points
@@ -58,17 +61,17 @@ public class ChairmanRegister {
 
         System.out.println("Register new member");
         System.out.print("Enter the name: ");
-        name = in.nextLine();
+        name = ScannerMethods.stringInput();
         System.out.print("Enter age: ");
-        age = (int) validNumberInput(validAgeMin, validAgeMax, "Not a valid age, please input a valid age: ");
+        age = (int) ScannerMethods.validNumberInput(validAgeMin, validAgeMax, "Not a valid age, please input a valid age: ");
         System.out.print("Choose 1 to be an ACTIVE member, choose 2 to be a PASSIVE member: ");
-        activePassive = (int) validNumberInput(optionOne, optionTwo, "Not a valid number: ");
+        activePassive = (int) ScannerMethods.validNumberInput(optionOne, optionTwo, "Not a valid number: ");
 
         if (activePassive == optionOne) {
             System.out.println("For a COMPETITIVE membership press 1");
             System.out.println("For an EXERCISE membership press 2");
             System.out.print("Make your choice: ");
-            exerciseCompetitive = (int) validNumberInput(optionOne, optionTwo, "Not a valid choice: ");
+            exerciseCompetitive = (int) ScannerMethods.validNumberInput(optionOne, optionTwo, "Not a valid choice: ");
             if (exerciseCompetitive == optionOne) {
                 while (notDone) {
                     Menu disciplineMenu = new Menu("Choose your desired discipline", LEAD_TEXT,
@@ -110,42 +113,15 @@ public class ChairmanRegister {
         }
     }
 
-    /**
-     * A method to check if the user input is legal
-     * @param numberFrom is the lowest number the input accept
-     * @param numberTo is the highest number the input accept
-     * @param errorMessage is the shown errormessage if the user input is illegal
-     * @return a legal input from the user
-     * @author Christian
-     */
-    public double validNumberInput(double numberFrom, double numberTo, String errorMessage) {
-        boolean validChoice = false;
-        double legalNumber = -1;
 
-        while (!validChoice) {
-            if (in.hasNextDouble()) {
-                legalNumber = in.nextDouble();
-                in.nextLine(); //Scanner bug
-                if (legalNumber >= numberFrom && legalNumber <= numberTo) {
-                    validChoice = true;
-                } else {
-                    System.out.print(errorMessage);
-                }
-            } else {
-                System.out.print(errorMessage);
-                in.nextLine();
-            }
-        }
-        return legalNumber;
-    }
 
     /**
      * A method that is able to execute the whole class, including loading and saving data input from the user
      * @author Christian & Sverri
      */
     public void run() {
-        FileData.readFile(MEMBER_FILENAME);
+
         showMenu();
-        FileData.saveFile(new FileData(memberList, MEMBER_FILENAME));
+
     }
 }

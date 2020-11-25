@@ -1,12 +1,12 @@
 import java.io.*;
 import java.util.ArrayList;
 
-public class FileData implements Serializable {
+public class FileData<T> implements Serializable {
 
     private String fileName;
-    private ArrayList saveAll;
+    private ArrayList<T> saveAll;
 
-    public FileData(ArrayList saveAll, String fileName) {
+    public FileData(ArrayList<T> saveAll, String fileName) {
         this.saveAll = saveAll;
         this.fileName = fileName;
     }
@@ -15,20 +15,20 @@ public class FileData implements Serializable {
         return fileName;
     }
 
-    public ArrayList getSaveAll() {
+    public ArrayList<T> getSaveAll() {
         return saveAll;
     }
 
-    public static ArrayList readFile(String fileName) {
+    public ArrayList<T> readFile() {
         try {
             FileInputStream fileIn = new FileInputStream(fileName);
             ObjectInputStream objIn = new ObjectInputStream(fileIn);
-            FileData save = (FileData) objIn.readObject();
+            FileData<T> save = (FileData<T>) objIn.readObject();
             objIn.close();
             fileIn.close();
             return save.getSaveAll();
         } catch (FileNotFoundException e) {
-            return new ArrayList();
+            return new ArrayList<>();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -37,7 +37,7 @@ public class FileData implements Serializable {
         return null;
     }
 
-    public static void saveFile(FileData save) {
+    public void saveFile(FileData<T> save) {
         try {
             FileOutputStream fileOut = new FileOutputStream(save.getFileName());
             ObjectOutputStream objOut = new ObjectOutputStream(fileOut);
