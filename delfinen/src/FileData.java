@@ -37,14 +37,14 @@ public class FileData<T> implements Serializable {
         return null;
     }
 
-    public void saveFile(FileData<T> save) {
+    public void saveFile() {
         try {
-            FileOutputStream fileOut = new FileOutputStream(save.getFileName());
+            FileOutputStream fileOut = new FileOutputStream(fileName);
             ObjectOutputStream objOut = new ObjectOutputStream(fileOut);
-            objOut.writeObject(save);
+            objOut.writeObject(this);
             objOut.close();
             fileOut.close();
-            System.out.println("Information is now stored in " + save.getFileName());
+            System.out.println("Information is now stored in " + fileName);
         } catch (IOException e) {
             e.printStackTrace();
         }

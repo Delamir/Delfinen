@@ -1,3 +1,4 @@
+import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -6,17 +7,19 @@ import java.util.ArrayList;
  */
 public class RunProgramMenu {
 
-    private static final String MEMBER_FILENAME = "MemberList.txt";
+    private static final String MEMBER_FILENAME = "MemberList.ser";
+    private static final String TOURNAMENT_FILENAME = "Tournament.ser";
 
     private static ArrayList<Member> memberList;
+    private static ArrayList<Tournament> tournamentList;
 
     /**
      * A main method that runs a menu for the user to choose which part of the program they would like to access
      * @author Sverri, Joachim, Patrick & Christian
      */
     public static void main(String[] args) {
-        memberList = new FileData<>(memberList, MEMBER_FILENAME).readFile();
-
+        memberList = new FileData<Member>(memberList, MEMBER_FILENAME).readFile();
+        tournamentList = new FileData<Tournament>(tournamentList, TOURNAMENT_FILENAME).readFile();
 
         final String MENU_HEADER = "Delfinen Swimming Club";
         final String LEAD_TEXT = "Please choose: ";
@@ -43,5 +46,8 @@ public class RunProgramMenu {
 
             }
         }
+        System.out.println(memberList);
+        new FileData<Member>(memberList, MEMBER_FILENAME).saveFile();
+        new FileData<Tournament>(tournamentList, TOURNAMENT_FILENAME).saveFile();
     }
 }

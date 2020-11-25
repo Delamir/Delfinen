@@ -120,7 +120,7 @@ public class ChairmanRegister {
      * @author Christian & Sverri
      */
     public void run() {
-
+        memberList.add(new PassiveMember(22,"Patrick"));
         showMenu();
 
     }
