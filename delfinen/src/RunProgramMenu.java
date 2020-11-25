@@ -1,4 +1,3 @@
-import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -18,8 +17,8 @@ public class RunProgramMenu {
      * @author Sverri, Joachim, Patrick & Christian
      */
     public static void main(String[] args) {
-        memberList = new FileData<Member>(memberList, MEMBER_FILENAME).readFile();
-        tournamentList = new FileData<Tournament>(tournamentList, TOURNAMENT_FILENAME).readFile();
+        memberList = new FileData<>(memberList, MEMBER_FILENAME).readFile();
+        tournamentList = new FileData<>(tournamentList, TOURNAMENT_FILENAME).readFile();
 
         final String MENU_HEADER = "Delfinen Swimming Club";
         final String LEAD_TEXT = "Please choose: ";
@@ -48,7 +47,7 @@ public class RunProgramMenu {
             }
         }
         System.out.println(memberList);
-        new FileData<Member>(memberList, MEMBER_FILENAME).saveFile();
-        new FileData<Tournament>(tournamentList, TOURNAMENT_FILENAME).saveFile();
+        new FileData<>(memberList, MEMBER_FILENAME).saveFile();
+        new FileData<>(tournamentList, TOURNAMENT_FILENAME).saveFile();
     }
 }
