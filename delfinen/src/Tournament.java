@@ -10,7 +10,8 @@ public class Tournament {
     private String address;
     private ArrayList<CompetitiveMember> participants  = new ArrayList<>();
 
-    public Tournament(int year, int month, int day, int hour, int minutes, ArrayList<Discipline> disciplines, String name, String address) {
+    public Tournament(int year, int month, int day, int hour, int minutes, ArrayList<Discipline> disciplines,
+                      String name, String address) {
 
         this.disciplines = disciplines;
         dateTime = LocalDateTime.of(year, month, day, hour, minutes);
