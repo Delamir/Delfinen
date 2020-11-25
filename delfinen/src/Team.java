@@ -1,6 +1,5 @@
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Team {
 
@@ -11,7 +10,6 @@ public class Team {
     ArrayList<Member> memberList = new ArrayList<>();
 
     Menu menu = new Menu(MENU_HEADER, LEAD_TEXT, MENU_POINT);
-    Scanner in = new Scanner(System.in);
 
     public Team(ArrayList<Member> memberList) {
         this.memberList = memberList;
@@ -71,9 +69,9 @@ public class Team {
         ArrayList<Discipline> disciplines;
 
         System.out.println("Enter name of the tournament: ");
-        name = in.nextLine();
+        name = ScannerMethods.stringInput();
         System.out.println("Enter address of the tournament: ");
-        address = in.nextLine();
+        address = ScannerMethods.stringInput();
         System.out.println("Enter year:");
         year = (int) ScannerMethods.validNumberInput(yearMin, yearMax, "Invalid year. Please try again: ");
         System.out.println("Enter month: ");
