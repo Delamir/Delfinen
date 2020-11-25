@@ -1,3 +1,8 @@
+/**
+ * enum with different disciplines, with a little spice added from a certain member of the group
+ * Authors Sverri og Joachim
+ */
+
 public enum Discipline {
     FREESTYLE("Freestyle"),
     BUTTERFLY("Butterfly"),

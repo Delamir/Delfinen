@@ -32,6 +32,8 @@ public class ChairmanRegister {
                 case 1:
                     memberList.add(registerMember());
                     break;
+                case 2:
+
                 case 9:
                     System.out.println("Logging out. Have a nice day");
                     logOut = true;
@@ -120,7 +122,6 @@ public class ChairmanRegister {
      * @author Christian & Sverri
      */
     public void run() {
-        memberList.add(new PassiveMember(22,"Patrick"));
         showMenu();
 
     }
