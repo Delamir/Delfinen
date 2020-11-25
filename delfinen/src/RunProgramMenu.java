@@ -1,5 +1,6 @@
 /**
  * A class that runs the entire program
+ * @author Sverri, Joachim, Patrick & Christian
  */
 public class RunProgramMenu {
 
