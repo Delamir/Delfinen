@@ -113,15 +113,11 @@ public class ChairmanRegister {
         }
     }
 
-
-
     /**
      * A method that is able to execute the whole class, including loading and saving data input from the user
      * @author Christian & Sverri
      */
     public void run() {
-
         showMenu();
-
     }
 }

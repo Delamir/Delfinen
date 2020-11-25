@@ -10,7 +10,6 @@ public class Team {
     ArrayList<Member> memberList = new ArrayList<>();
 
     Menu menu = new Menu(MENU_HEADER, LEAD_TEXT, MENU_POINT);
-
     Scanner in = new Scanner(System.in);
 
     public Team(ArrayList<Member> memberList) {
@@ -70,15 +69,15 @@ public class Team {
         System.out.println("Enter address of the tournament: ");
         address = in.nextLine();
         System.out.println("Enter year:");
-        year = (int) validNumberInput(yearMin, yearMax, "Invalid year. Please try again: ");
+        year = (int) ScannerMethods.validNumberInput(yearMin, yearMax, "Invalid year. Please try again: ");
         System.out.println("Enter month: ");
-        month = (int) validNumberInput(monthMin, monthMax, "Invalid month. Please try again: ");
+        month = (int) ScannerMethods.validNumberInput(monthMin, monthMax, "Invalid month. Please try again: ");
         System.out.println("Enter day: ");
-        day = (int) validNumberInput(dayMin, dayMax, "Invalid day. Please try again: ");
+        day = (int) ScannerMethods.validNumberInput(dayMin, dayMax, "Invalid day. Please try again: ");
         System.out.println("Enter hour: ");
-        hour = (int) validNumberInput(hourMin, hourMax, "Invalid hour. Please try again: ");
+        hour = (int) ScannerMethods.validNumberInput(hourMin, hourMax, "Invalid hour. Please try again: ");
         System.out.println("Enter minute: ");
-        minute = (int) validNumberInput(minuteMin, minuteMax, "Invalid minute. Please try again: ");
+        minute = (int) ScannerMethods.validNumberInput(minuteMin, minuteMax, "Invalid minute. Please try again: ");
         System.out.printf("Tournament %s has been registered at %s. Date for tournament is: %d" + "-" + "%d" + "-"
                 + "%d. Time: %d" + "." + "%d", name, address, year, month, day, hour, minute);
     }
@@ -87,27 +86,6 @@ public class Team {
     }
 
     public void registerResult() {
-    }
-
-    public double validNumberInput(double numberFrom, double numberTo, String errorMessage) {
-        boolean validChoice = false;
-        double legalNumber = -1;
-
-        while (!validChoice) {
-            if (in.hasNextDouble()) {
-                legalNumber = in.nextDouble();
-                in.nextLine(); //Scanner bug
-                if (legalNumber >= numberFrom && legalNumber <= numberTo) {
-                    validChoice = true;
-                } else {
-                    System.out.print(errorMessage);
-                }
-            } else {
-                System.out.print(errorMessage);
-                in.nextLine();
-            }
-        }
-        return legalNumber;
     }
 }
 

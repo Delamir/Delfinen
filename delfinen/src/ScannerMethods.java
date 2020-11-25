@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class ScannerMethods {
 
-    private static Scanner in = new Scanner(System.in);
+    private static final Scanner IN = new Scanner(System.in);
 
     /**
      * A method to check if the user input is legal
@@ -17,9 +17,9 @@ public class ScannerMethods {
         double legalNumber = -1;
 
         while (!validChoice) {
-            if (in.hasNextDouble()) {
-                legalNumber = in.nextDouble();
-                in.nextLine(); //Scanner bug
+            if (IN.hasNextDouble()) {
+                legalNumber = IN.nextDouble();
+                IN.nextLine(); //Scanner bug
                 if (legalNumber >= numberFrom && legalNumber <= numberTo) {
                     validChoice = true;
                 } else {
@@ -27,15 +27,13 @@ public class ScannerMethods {
                 }
             } else {
                 System.out.print(errorMessage);
-                in.nextLine();
+                IN.nextLine();
             }
         }
         return legalNumber;
     }
 
     public static String stringInput(){
-        return in.nextLine();
+        return IN.nextLine();
     }
-
-
 }
