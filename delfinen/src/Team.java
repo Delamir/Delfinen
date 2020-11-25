@@ -19,7 +19,7 @@ public class Team {
 
     public void showMenu() {
         boolean logOut = false;
-        Results results = new Results();
+        Ranking ranking = new Ranking();
 
         while (!logOut) {
             menu.printMenu();
@@ -28,7 +28,7 @@ public class Team {
                     registerTournament();
                     break;
                 case 2:
-                    results.showResults();
+                    ranking.showResults();
                     break;
                 case 3:
                     appointParticipant();

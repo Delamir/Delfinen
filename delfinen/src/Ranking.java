@@ -1,9 +1,13 @@
 import java.time.LocalTime;
 import java.util.concurrent.TimeUnit;
 
-public class Results {
+public class Ranking {
 
-    public Results(Discipline d) {
+    public Ranking(Discipline d) {
+
+    }
+
+    public Ranking() {
 
     }
 
