@@ -1,5 +1,10 @@
 import java.util.Scanner;
 
+/**
+ * A class that accept input from the user
+ * @author Sverri & Christian
+ */
+
 public class ScannerMethods {
 
     private static final Scanner IN = new Scanner(System.in);
@@ -33,6 +38,11 @@ public class ScannerMethods {
         return legalNumber;
     }
 
+    /**
+     * A method that return a String from use input
+     * @return an input string
+     * @author Sverri
+     */
     public static String stringInput(){
         return IN.nextLine();
     }
