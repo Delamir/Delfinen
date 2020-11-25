@@ -15,6 +15,9 @@ public class Team {
         this.memberList = memberList;
     }
 
+    public Team() {
+    }
+
     public void showMenu() {
         boolean logOut = false;
         Ranking ranking = new Ranking();
@@ -108,6 +111,10 @@ public class Team {
         milli = (int) ScannerMethods.validNumberInput(milliMin, milliMax, "Invalid milliseconds. Please try again: ");
         System.out.printf("The time was: %d" + "." + "%d" + "." + "%d", min, sec, milli);
 
+    }
+
+    public void run() {
+        showMenu();
     }
 }
 
