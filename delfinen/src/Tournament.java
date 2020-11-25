@@ -1,8 +1,9 @@
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 
-public class Tournament {
+public class Tournament implements Serializable {
 
     private LocalDateTime dateTime;
     private ArrayList<Discipline> disciplines = new ArrayList<>();
