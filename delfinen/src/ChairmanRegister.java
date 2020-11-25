@@ -11,7 +11,6 @@ public class ChairmanRegister {
     private static final String[] MENU_POINT = {"1. Register member", "9. Log out"};
 
     ArrayList<Member> memberList;
-
     Menu menu = new Menu(MENU_HEADER, LEAD_TEXT, MENU_POINT);
 
     public ChairmanRegister(ArrayList<Member> memberList) {

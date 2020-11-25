@@ -43,7 +43,6 @@ public class RunProgramMenu {
                     logOut = true;
                 default:
                     System.out.print("Not a valid menu point, please try again: ");
-
             }
         }
         System.out.println(memberList);
