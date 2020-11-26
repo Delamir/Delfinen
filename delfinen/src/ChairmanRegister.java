@@ -33,6 +33,7 @@ public class ChairmanRegister {
                 case 9:
                     System.out.println("Logging out. Have a nice day");
                     logOut = true;
+                    break;
                 default:
                     System.out.print("Not a valid menu point, please try again: ");
             }
@@ -97,7 +98,9 @@ public class ChairmanRegister {
                             competitiveDisciplines.add(Discipline.SPLASHING);
                             break;
                         case 9:
+                            System.out.println("Welcome to the swimming club");
                             notDone = false;
+                            break;
                         default:
                             System.out.println("Not a valid input, please try again");
                     }
