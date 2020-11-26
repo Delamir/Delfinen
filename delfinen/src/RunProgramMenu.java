@@ -41,6 +41,7 @@ public class RunProgramMenu {
                 case 9:
                     System.out.println("Logging out. Have a nice day");
                     logOut = true;
+                    break;
                 default:
                     System.out.print("Not a valid menu point, please try again: ");
             }
