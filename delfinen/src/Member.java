@@ -8,7 +8,7 @@ public abstract class Member implements Serializable {
     static final double SENIOR_DISCOUNT = 0.75;
     static final double JUNIOR_PRICE = 1000;
     static final double PASSIVE_PRICE = 500;
-    private boolean paymentStatus;
+    private boolean paymentStatus = true;
 
     abstract void setMembershipFee();
 
@@ -24,7 +24,6 @@ public abstract class Member implements Serializable {
     public int getAge() {
         return age;
     }
-
 
     public String getName() {
         return name;
@@ -42,22 +41,6 @@ public abstract class Member implements Serializable {
         this.membershipFee = membershipFee;
     }
 
-    public static double getSeniorPrice() {
-        return SENIOR_PRICE;
-    }
-
-    public static double getSeniorDiscount() {
-        return SENIOR_DISCOUNT;
-    }
-
-    public static double getJuniorPrice() {
-        return JUNIOR_PRICE;
-    }
-
-    public static double getPassivePrice() {
-        return PASSIVE_PRICE;
-    }
-
     public boolean isPaymentStatus() {
         return paymentStatus;
     }
@@ -65,4 +48,10 @@ public abstract class Member implements Serializable {
     public void setPaymentStatus(boolean paymentStatus) {
         this.paymentStatus = paymentStatus;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+
 }
