@@ -187,7 +187,7 @@ public class Team {
     }
 
     public void showTournaments() {
-        for ( Tournament t : tournamentList) {
+        for (Tournament t : tournamentList) {
             System.out.println(t);
 
         }
@@ -198,7 +198,7 @@ public class Team {
     }
 
     public void showMemberList() {
-        for ( CompetitiveMember m : memberList) {
+        for (CompetitiveMember m : memberList) {
             System.out.println(m);
         }
     }
