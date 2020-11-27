@@ -6,9 +6,13 @@ public class Cashier {
     private static final String LEAD_TEXT = "Please choose: ";
     private static final String[] MENU_POINT = {"1. Subscription Overview", "2. Arrears", "9. Log out"};
     private static final String MEMBER_FILENAME = "MemberList.ser";
-    private static ArrayList<Member> memberList;
+    private final ArrayList<Member> MEMBER_LIST;
 
     Menu menu = new Menu(MENU_HEADER, LEAD_TEXT, MENU_POINT);
+
+    public Cashier(ArrayList<Member> MEMBER_LIST) {
+        this.MEMBER_LIST = MEMBER_LIST;
+    }
 
     public void showMenu() {
         boolean logOut = false;
@@ -33,8 +37,12 @@ public class Cashier {
     }
 
     public void subscriptionOverview() {
-        memberList = new FileData<>(memberList, MEMBER_FILENAME).readFile();
-        System.out.print(memberList);
+        double total = 0;
+
+        for(Member m : MEMBER_LIST) {
+            total += m.getMembershipFee();
+        }
+        System.out.printf("Total amount of membership fee (dough): %.2fDKK\n", total);
     }
 
     public void arrears() {

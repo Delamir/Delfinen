@@ -54,7 +54,7 @@ public class RunProgramMenu {
                     teamMenu();
                     break;
                 case 3:
-                    new Cashier().run();
+                    new Cashier(memberList).run();
                     break;
                 case 9:
                     System.out.println("Logging out. Have a nice day");

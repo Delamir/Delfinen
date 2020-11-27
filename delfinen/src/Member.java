@@ -5,7 +5,7 @@ public abstract class Member implements Serializable {
     private String name;
     private double membershipFee;
     static final double SENIOR_PRICE = 1600;
-    static final double SENIOR_DISCOUNT = 0.25;
+    static final double SENIOR_DISCOUNT = 0.75;
     static final double JUNIOR_PRICE = 1000;
     static final double PASSIVE_PRICE = 500;
     private boolean paymentStatus;
