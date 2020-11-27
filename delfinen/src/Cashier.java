@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Cashier {
 
     private static final String MENU_HEADER = "Welcome Chairman";
@@ -5,6 +7,8 @@ public class Cashier {
     private static final String[] MENU_POINT = {"1. Subscription Overview", "2. Arrears", "9. Log out"};
 
     Menu menu = new Menu(MENU_HEADER, LEAD_TEXT, MENU_POINT);
+    ArrayList<Object> loadMemberList = new ArrayList<>();
+    FileData<Object> fileData = new FileData<>(loadMemberList, "MemberList.ser");
 
     public void showMenu() {
         boolean logOut = false;
@@ -28,11 +32,11 @@ public class Cashier {
         }
     }
 
-    public void arrears() {
+    public void subscriptionOverview() {
 
     }
 
-    public void subscriptionOverview() {
+    public void arrears() {
 
     }
 

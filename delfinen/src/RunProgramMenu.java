@@ -64,7 +64,6 @@ public class RunProgramMenu {
                     System.out.print("Not a valid menu point, please try again: ");
             }
         }
-        System.out.println(memberList);
         new FileData<>(memberList, MEMBER_FILENAME).saveFile();
         new FileData<>(tournamentList, TOURNAMENT_FILENAME).saveFile();
     }
