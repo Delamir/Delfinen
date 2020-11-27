@@ -19,6 +19,10 @@ public class Team {
 
     }
 
+    public Team() {
+
+    }
+
     public void showMenu() {
         boolean logOut = false;
         Ranking ranking = new Ranking();

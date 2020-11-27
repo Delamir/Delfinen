@@ -39,7 +39,7 @@ public class RunProgramMenu {
 
         final String MENU_HEADER = "Delfinen Swimming Club";
         final String LEAD_TEXT = "Please choose: ";
-        final String[] MENU_POINT = {"1. Register Member - Chairman", "2. For Cashier Menu", "3. Coach", "9. Log out"};
+        final String[] MENU_POINT = {"1. Register Member - Chairman", "2. Coach", "3. For Cashier", "9. Log out"};
         boolean logOut = false;
 
         Menu menu = new Menu(MENU_HEADER, LEAD_TEXT, MENU_POINT);
@@ -54,6 +54,7 @@ public class RunProgramMenu {
                     teamMenu();
                     break;
                 case 3:
+                    new Cashier().run();
                     break;
                 case 9:
                     System.out.println("Logging out. Have a nice day");
@@ -63,7 +64,6 @@ public class RunProgramMenu {
                     System.out.print("Not a valid menu point, please try again: ");
             }
         }
-        System.out.println(memberList);
         new FileData<>(memberList, MEMBER_FILENAME).saveFile();
         new FileData<>(tournamentList, TOURNAMENT_FILENAME).saveFile();
     }

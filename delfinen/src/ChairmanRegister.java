@@ -98,7 +98,6 @@ public class ChairmanRegister {
                             competitiveDisciplines.add(Discipline.SPLASHING);
                             break;
                         case 9:
-                            System.out.println("Welcome to the swimming club");
                             notDone = false;
                             break;
                         default:
