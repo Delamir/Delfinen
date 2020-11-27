@@ -74,4 +74,9 @@ public class CompetitiveMember extends Member {
     public ArrayList<Result> getResults() {
         return results;
     }
+
+    @Override
+    public String toString() {
+        return "Competitive Member: " + getName() + "\nDisciplines: " + disciplines + ", results: " + results;
+    }
 }

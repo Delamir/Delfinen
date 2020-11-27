@@ -5,6 +5,7 @@ import java.util.ArrayList;
  *
  * @author Sverri, Joachim, Patrick & Christian
  */
+
 public class RunProgramMenu {
 
     private static final String MEMBER_FILENAME = "MemberList.ser";
@@ -22,6 +23,7 @@ public class RunProgramMenu {
      *
      * @author Sverri, Joachim, Patrick & Christian
      */
+
     public static void main(String[] args) {
         memberList = new FileData<>(memberList, MEMBER_FILENAME).readFile();
         tournamentList = new FileData<>(tournamentList, TOURNAMENT_FILENAME).readFile();

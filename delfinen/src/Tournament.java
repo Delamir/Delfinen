@@ -15,6 +15,8 @@ public class Tournament implements Serializable {
                       String name, String address) {
 
         this.disciplines = disciplines;
+        this.name = name;
+        this.address = address;
         dateTime = LocalDateTime.of(year, month, day, hour, minutes);
     }
 
@@ -38,5 +40,11 @@ public class Tournament implements Serializable {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    @Override
+    public String toString() {
+        return "Tournament: " + name + "\nDisciplines: " + disciplines +
+                ", address: " + address + ", date & time: " + dateTime;
     }
 }
