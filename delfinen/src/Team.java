@@ -94,6 +94,10 @@ public class Team {
     public void appointParticipant() {
     }
 
+    /**
+     * @author Joachim
+     */
+
     public void registerResult() {
         int min;
         int sec;
