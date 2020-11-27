@@ -7,13 +7,13 @@ public class Team {
     private final String LEAD_TEXT = "Please choose: ";
     private final String[] MENU_POINT = {"1. Register tournament", "2. Show swim results",
             "3. Appoint tournament participants", "4. Register swimming results"};
-    ArrayList<Member> memberList = new ArrayList<>();
+    ArrayList<CompetitiveMember> memberList = new ArrayList<>();
     ArrayList<Tournament> tournamentList = new ArrayList<>();
 
     Menu menu = new Menu(MENU_HEADER, LEAD_TEXT, MENU_POINT);
 
 
-    public Team(ArrayList<Member> memberList, ArrayList<Tournament> tournamentList) {
+    public Team(ArrayList<CompetitiveMember> memberList, ArrayList<Tournament> tournamentList) {
         this.memberList = memberList;
         this.tournamentList = tournamentList;
     }
