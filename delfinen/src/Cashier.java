@@ -5,10 +5,10 @@ public class Cashier {
     private static final String MENU_HEADER = "Welcome Chairman";
     private static final String LEAD_TEXT = "Please choose: ";
     private static final String[] MENU_POINT = {"1. Subscription Overview", "2. Arrears", "9. Log out"};
+    private static final String MEMBER_FILENAME = "MemberList.ser";
+    private static ArrayList<Member> memberList;
 
     Menu menu = new Menu(MENU_HEADER, LEAD_TEXT, MENU_POINT);
-    ArrayList<Object> loadMemberList = new ArrayList<>();
-    FileData<Object> fileData = new FileData<>(loadMemberList, "MemberList.ser");
 
     public void showMenu() {
         boolean logOut = false;
@@ -33,7 +33,8 @@ public class Cashier {
     }
 
     public void subscriptionOverview() {
-
+        memberList = new FileData<>(memberList, MEMBER_FILENAME).readFile();
+        System.out.print(memberList);
     }
 
     public void arrears() {
