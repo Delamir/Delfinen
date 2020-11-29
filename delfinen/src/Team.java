@@ -3,7 +3,6 @@ import java.util.ArrayList;
 import java.util.EnumSet;
 
 public class Team {
-    String name, address;
     int year;
     int month;
     int day;
@@ -28,19 +27,15 @@ public class Team {
     final int milliMax = 999;
     final int distMin = 10;
     final int distMax = 25000;
+
+
     private final String MENU_HEADER = "Register tournament";
     private final String LEAD_TEXT = "Please choose: ";
     private final String[] MENU_POINT = {"1. Register tournament", "2. Show swim results",
             "3. Appoint tournament participants", "4. Register swimming results"};
-    ArrayList<Discipline> disciplines = new ArrayList<>();
     ArrayList<CompetitiveMember> memberList = new ArrayList<>();
     ArrayList<Tournament> tournamentList = new ArrayList<>();
 
-    CompetitiveMember member;
-    Discipline d = null;
-
-    String[] disc = new String[Discipline.values().length + 1];
-    String[] memb = new String[memberList.size()];
     Menu menu = new Menu(MENU_HEADER, LEAD_TEXT, MENU_POINT);
 
 
@@ -84,16 +79,22 @@ public class Team {
 
     /**
      * A method for registering a tournament
+     *
      * @author Joachim
      */
 
     public void registerTournament() {
 
+        String name, address;
+        ArrayList<Discipline> disciplines = new ArrayList<>();
+
+        String[] disc = new String[Discipline.values().length + 1];
+
         for (int i = 0; i < disc.length - 1; i++) {
             disc[i] = (i + 1) + ". " + Discipline.values()[i].toString();
         }
 
-        disc[disc.length -1] = "9. Finish";
+        disc[disc.length -1] = "9. EXIT";
 
         Menu menu = new Menu("Discipline", "Choose: ", disc);
 
@@ -109,6 +110,7 @@ public class Team {
                 case 5 -> disciplines.add(Discipline.DROWNING);
                 case 6 -> disciplines.add(Discipline.SPLASHING);
                 case 9 -> {
+                    System.out.println("Choose your disciplines: ");
                     logOut = true;
                 }
                 default -> System.out.println("Not a valid input, please try again");
@@ -118,7 +120,7 @@ public class Team {
         name = ScannerMethods.stringInput();
         System.out.println("Enter address of the tournament: ");
         address = ScannerMethods.stringInput();
-        System.out.println("Enter year: ");
+        System.out.println("Enter year:");
         year = (int) ScannerMethods.validNumberInput(yearMin, yearMax, "Invalid year. Please try again: ");
         System.out.println("Enter month: ");
         month = (int) ScannerMethods.validNumberInput(monthMin, monthMax, "Invalid month. Please try again: ");
@@ -141,6 +143,11 @@ public class Team {
      */
 
     public void registerResult() {
+
+        CompetitiveMember member;
+        Discipline d = null;
+
+        String[] memb = new String[memberList.size()];
 
         for (int i = 0; i < memb.length; i++ )
             memb[i] = (i + 1) + ". " + memberList.get(i).getName();
