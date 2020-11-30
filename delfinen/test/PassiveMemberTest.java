@@ -6,6 +6,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class PassiveMemberTest {
 
+
+    /**
+     * @author Patrick
+     */
     @Test
     void passiveMemberTest() {
         Member cmJr = new PassiveMember(17, "Bent");

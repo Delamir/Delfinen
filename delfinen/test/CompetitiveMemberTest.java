@@ -17,6 +17,9 @@ class CompetitiveMemberTest {
         assertEquals(1200, cmPe.getMembershipFee());
     }
 
+    /**
+     * @author Sverri og Patrick
+     */
     @Test
     void addResultTest() {
         ArrayList<Discipline> disciplines = new ArrayList<>();
