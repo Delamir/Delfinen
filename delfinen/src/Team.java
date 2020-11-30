@@ -156,7 +156,7 @@ public class Team {
         boolean validMember = false;
         while (!validMember) {
             choice = menu.readChoice();
-            if (choice > 0 && choice < memberList.size())
+            if (choice > 0 && choice <= memberList.size())
                 validMember = true;
         }
         member = memberList.get(choice-1);

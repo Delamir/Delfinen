@@ -22,8 +22,8 @@ public class RunProgramMenu {
      */
 
     public static void main(String[] args) {
-        memberList = new FileData<>(memberList, MEMBER_FILENAME).readFile();
-        tournamentList = new FileData<>(tournamentList, TOURNAMENT_FILENAME).readFile();
+        memberList = new FileData<Member>(memberList, MEMBER_FILENAME).readFile();
+        tournamentList = new FileData<Tournament>(tournamentList, TOURNAMENT_FILENAME).readFile();
 
 
 
@@ -54,8 +54,8 @@ public class RunProgramMenu {
                     System.out.print("Not a valid menu point, please try again: ");
             }
         }
-        new FileData<>(memberList, MEMBER_FILENAME).saveFile();
-        new FileData<>(tournamentList, TOURNAMENT_FILENAME).saveFile();
+        new FileData<Member>(memberList, MEMBER_FILENAME).saveFile();
+        new FileData<Tournament>(tournamentList, TOURNAMENT_FILENAME).saveFile();
     }
 
     public static void teamMenu() {
