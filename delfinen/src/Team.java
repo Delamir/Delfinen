@@ -40,12 +40,9 @@ public class Team {
 
 
     public Team(ArrayList<CompetitiveMember> memberList, ArrayList<Tournament> tournamentList) {
+
         this.memberList = memberList;
         this.tournamentList = tournamentList;
-
-    }
-
-    public Team() {
 
     }
 
@@ -94,7 +91,7 @@ public class Team {
             disc[i] = (i + 1) + ". " + Discipline.values()[i].toString();
         }
 
-        disc[disc.length -1] = "9. EXIT";
+        disc[disc.length - 1] = "9. EXIT";
 
         Menu menu = new Menu("Discipline", "Choose: ", disc);
 
@@ -149,28 +146,43 @@ public class Team {
 
         String[] memb = new String[memberList.size()];
 
-        for (int i = 0; i < memb.length; i++ )
+        for (int i = 0; i < memb.length; i++)
             memb[i] = (i + 1) + ". " + memberList.get(i).getName();
 
         Menu menu = new Menu("Member", "Choose member", memb);
         menu.printMenu();
-        member = memberList.get(menu.readChoice() - 1);
+        
+        int choice = 0;
+        boolean validMember = false;
+        while (!validMember) {
+            choice = menu.readChoice();
+            if (choice > 0 && choice < memberList.size())
+                validMember = true;
+        }
+        member = memberList.get(choice-1);
 
         System.out.println("Discipline: ");
         String[] disp = new String[Discipline.values().length + 1];
 
-        for (int i = 0; i < disp.length; i++) {
+        for (int i = 0; i < disp.length - 1; i++) {
             disp[i] = (i + 1) + ". " + Discipline.values()[i].toString();
         }
-        switch (menu.readChoice()) {
-            case 1 -> d = Discipline.FREESTYLE;
-            case 2 -> d = Discipline.BUTTERFLY;
-            case 3 -> d = Discipline.BACKSTROKE;
-            case 4 -> d = Discipline.BREASTSTROKE;
-            case 5 -> d = Discipline.DROWNING;
-            case 6 -> d = Discipline.SPLASHING;
-        }
+        disp[disp.length - 1] = 9 + ". Exit";
 
+        menu.printMenu();
+        boolean valid = false;
+        while (!valid) {
+            switch (menu.readChoice()) {
+                case 1 -> d = Discipline.FREESTYLE;
+                case 2 -> d = Discipline.BUTTERFLY;
+                case 3 -> d = Discipline.BACKSTROKE;
+                case 4 -> d = Discipline.BREASTSTROKE;
+                case 5 -> d = Discipline.DROWNING;
+                case 6 -> d = Discipline.SPLASHING;
+            }
+            if (d != null)
+                valid = true;
+        }
         System.out.println("Enter distance of the discipline in meters: ");
         dist = (int) ScannerMethods.validNumberInput(distMin, distMax, "Invalid distance. Please try again");
         System.out.println("Enter minutes: ");

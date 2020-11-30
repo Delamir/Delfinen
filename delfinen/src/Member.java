@@ -10,8 +10,6 @@ public abstract class Member implements Serializable {
     static final double PASSIVE_PRICE = 500;
     private boolean paymentStatus = true;
 
-    abstract void setMembershipFee();
-
     public Member(int age, String name) {
         this.age = age;
         this.name = name;

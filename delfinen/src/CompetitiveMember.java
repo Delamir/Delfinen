@@ -62,11 +62,6 @@ public class CompetitiveMember extends Member {
         }
     }
 
-    @Override
-    void setMembershipFee() {
-
-    }
-
     public ArrayList<Discipline> getDisciplines() {
         return disciplines;
     }

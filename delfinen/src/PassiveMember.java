@@ -4,9 +4,4 @@ public class PassiveMember extends Member {
         super(age, name);
         setMembershipFee(PASSIVE_PRICE);
     }
-
-    @Override
-    void setMembershipFee() {
-
-    }
 }

@@ -14,9 +14,6 @@ public class RunProgramMenu {
     private static ArrayList<Member> memberList;
     private static ArrayList<Tournament> tournamentList;
 
-    private static ArrayList<CompetitiveMember> teamListJunior;
-    private static ArrayList<CompetitiveMember> teamListSenior;
-
 
     /**
      * A main method that runs a menu for the user to choose which part of the program they would like to access
@@ -27,16 +24,7 @@ public class RunProgramMenu {
     public static void main(String[] args) {
         memberList = new FileData<>(memberList, MEMBER_FILENAME).readFile();
         tournamentList = new FileData<>(tournamentList, TOURNAMENT_FILENAME).readFile();
-        teamListJunior = new ArrayList<>();
-        teamListSenior = new ArrayList<>();
-        for (Member m : memberList) {
-            if (m instanceof CompetitiveMember) {
-                if (m.getAge() < 18)
-                    teamListJunior.add((CompetitiveMember) m);
-                else
-                    teamListSenior.add((CompetitiveMember) m);
-            }
-        }
+
 
 
         final String MENU_HEADER = "Delfinen Swimming Club";
@@ -71,6 +59,17 @@ public class RunProgramMenu {
     }
 
     public static void teamMenu() {
+        ArrayList<CompetitiveMember> teamListJunior = new ArrayList<>();
+        ArrayList<CompetitiveMember> teamListSenior = new ArrayList<>();
+        for (Member m : memberList) {
+            if (m instanceof CompetitiveMember) {
+                if (m.getAge() < 18)
+                    teamListJunior.add((CompetitiveMember) m);
+                else
+                    teamListSenior.add((CompetitiveMember) m);
+            }
+        }
+
         Menu menu = new Menu("Delfinen Teams", "Please choose: ", new String[]{"1. Junior Team", "2. Senior Team"});
         menu.printMenu();
         switch (menu.readChoice()) {

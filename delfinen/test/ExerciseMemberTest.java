@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ExerciseMemberTest {
 
     @Test
-    void excerciseMemberTest(){
+    void exerciseMemberTest(){
         Member member1 = new ExerciseMember(10,"Hans");
         Member member2 = new ExerciseMember(20,"Jens");
         Member member3 = new ExerciseMember(66,"Poul");

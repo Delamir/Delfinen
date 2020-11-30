@@ -74,7 +74,7 @@ public class Menu {
             if (in.hasNextInt()) {
                 number = in.nextInt();
                 in.nextLine();
-                if (number < 0) {
+                if (number <= 0) {
                     System.out.print(leadText);
                 } else {
                     validNumber = true;
