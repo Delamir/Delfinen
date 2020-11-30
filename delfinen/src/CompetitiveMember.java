@@ -44,7 +44,7 @@ public class CompetitiveMember extends Member {
     public void addResults(Discipline disp, int min, int sec, int milli, int dist) {
         if (disciplines.contains(disp)) {
             for (Result r : results) {
-                if (r.disp.equals(disp)) {
+                if (r.getDisp().equals(disp)) {
                     if (r.getMin() > min) {
                     } else if (r.getSec() > sec) {
                     } else if (r.getMilli() > milli) {
@@ -52,11 +52,11 @@ public class CompetitiveMember extends Member {
                         System.out.println("Previous result was better!");
                         return;
                     }
+                    System.out.printf("WOW!!!!!!!!!! You beat your best result by: %d seconds", sec);
+                    results.remove(r);
+                    results.add(new Result(disp, min, sec, milli, dist, this));
+                    return;
                 }
-                System.out.printf("WOW!!!!!!!!!! You beat your best result by: %d seconds", sec);
-                results.remove(r);
-                results.add(new Result(disp, min, sec, milli, dist, this));
-                return;
             }
             results.add(new Result(disp, min, sec, milli, dist, this));
         }

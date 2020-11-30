@@ -7,7 +7,7 @@ public class Result implements Comparable<Result> {
     private int milli;
     private int dist;
 
-    Discipline disp;
+    private Discipline disp;
 
     public Result(Discipline disp, int min, int sec, int milli, int dist, CompetitiveMember cm) {
         this.disp = disp;
@@ -49,14 +49,6 @@ public class Result implements Comparable<Result> {
 
     @Override
     public int compareTo(Result o) {
-        if (this.getMin() < o.getMin()) {
-            return -1;
-        } else if (this.getSec() < o.getSec()) {
-            return -1;
-        } else if (this.getMilli() < o.getMilli()) {
-            return -1;
-        } else {
-            return 1;
-        }
+        return Integer.compare(min * 60 * 1000+ sec* 1000 + milli,o.min * 60 * 1000+ o.sec* 1000 + o.milli);
     }
 }
