@@ -1,4 +1,4 @@
-public class Result {
+public class Result implements Comparable<Result> {
     private int min;
     private int sec;
     private int milli;
@@ -32,5 +32,18 @@ public class Result {
 
     public Discipline getDisp() {
         return disp;
+    }
+
+    @Override
+    public int compareTo(Result o) {
+        if (this.getMin() < o.getMin()) {
+            return -1;
+        } else if (this.getSec() < o.getSec()) {
+            return -1;
+        } else if (this.getMilli() < o.getMilli()) {
+            return -1;
+        } else {
+            return 1;
+        }
     }
 }
