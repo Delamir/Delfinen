@@ -1,6 +1,11 @@
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.EnumSet;
+import static java.awt.SystemColor.menu;
+
+/**
+ * Sverri og Joachim
+ */
 
 public class Team {
     int year;
@@ -33,6 +38,7 @@ public class Team {
     private final String LEAD_TEXT = "Please choose: ";
     private final String[] MENU_POINT = {"1. Register tournament", "2. Show swim results",
             "3. Appoint tournament participants", "4. Register swimming results"};
+
     ArrayList<CompetitiveMember> memberList = new ArrayList<>();
     ArrayList<Tournament> tournamentList = new ArrayList<>();
 
@@ -76,7 +82,7 @@ public class Team {
     /**
      * A method for registering a tournament
      *
-     * @author Joachim
+     * @author Sverri og Joachim
      */
 
     public void registerTournament() {
@@ -131,7 +137,32 @@ public class Team {
         tournamentList.add(new Tournament(year, month, day, hour, min, disciplines, name, address));
     }
 
+    /**
+     * @author Joachim
+     */
     public void appointParticipant() {
+        int choice;
+        Menu menu;
+        Tournament tournament;
+        CompetitiveMember member;
+        String[] tour = new String[tournamentList.size()];
+        String[] memb = new String[memberList.size()];
+
+        for (int i = 0; i < tour.length; i++)
+            tour[i] = (i + 1) + ". " + tournamentList.get(i).getName();
+
+        menu = new Menu("Tournament", "Choose tournament", tour);
+        choice = getChoice(menu, tournamentList.size());
+        tournament = tournamentList.get(choice-1);
+
+        for (int i = 0; i < memb.length; i++)
+            memb[i] = (i + 1) + ". " + memberList.get(i).getName();
+
+        menu = new Menu("Member", "Choose member", memb);
+        choice = getChoice(menu, memberList.size());
+        member = memberList.get(choice-1);
+
+        System.out.printf("%s has been appointed to the tournament: %s ", member, tournament);
     }
 
     /**
@@ -140,8 +171,9 @@ public class Team {
 
     public void registerResult() {
 
-        CompetitiveMember member;
         Discipline d = null;
+
+        CompetitiveMember member;
 
         String[] memb = new String[memberList.size()];
 
@@ -149,15 +181,7 @@ public class Team {
             memb[i] = (i + 1) + ". " + memberList.get(i).getName();
 
         Menu menu = new Menu("Member", "Choose member", memb);
-        menu.printMenu();
-        
-        int choice = 0;
-        boolean validMember = false;
-        while (!validMember) {
-            choice = menu.readChoice();
-            if (choice > 0 && choice <= memberList.size())
-                validMember = true;
-        }
+        int choice = getChoice(menu, memberList.size());
         member = memberList.get(choice-1);
 
         System.out.println("Discipline: ");
@@ -167,7 +191,7 @@ public class Team {
             disp[i] = (i + 1) + ". " + Discipline.values()[i].toString();
         }
         disp[disp.length - 1] = 9 + ". Exit";
-
+        menu = new Menu("Discipline", "Choose Discipline", disp);
         menu.printMenu();
         boolean valid = false;
         while (!valid) {
@@ -191,11 +215,27 @@ public class Team {
         System.out.println("Enter milliseconds: ");
         milli = (int) ScannerMethods.validNumberInput(milliMin, milliMax, "Invalid milliseconds. Please try again: ");
         System.out.printf("The time was: %02d" + ":" + "%02d" + ":" + "%04d\n", min, sec, milli);
-        System.out.printf("The distance was: %d in the discipline %s", dist, d);
+        System.out.printf("The distance was: %d " + "meters" + "in the discipline %s", dist, d);
         member.addResults(d, min, sec, milli, dist);
 
     }
 
+    private int getChoice(Menu menu, int size) {
+        menu.printMenu();
+
+        int choice = 0;
+        boolean validTournament = false;
+        while (!validTournament) {
+            choice = menu.readChoice();
+            if (choice > 0 && choice <= size)
+                validTournament = true;
+        }
+        return choice;
+    }
+
+    /**
+     * @author Sverri og Joachim
+     */
     public void showTournaments() {
         for (Tournament t : tournamentList) {
             System.out.println(t);
@@ -207,6 +247,9 @@ public class Team {
         showMenu();
     }
 
+    /**
+     * @author Sverri og Joachim
+     */
     public void showMemberList() {
         for (CompetitiveMember m : memberList) {
             System.out.println(m);

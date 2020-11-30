@@ -37,7 +37,7 @@ class TeamTest {
         ArrayList<Result> r = new ArrayList<>();
         d.add(Discipline.FREESTYLE);
         c.add(new CompetitiveMember(20, "Sverri", d));
-        r.add(new Result(Discipline.FREESTYLE, 10, 20, 25, 350));
+        r.add(new Result(Discipline.FREESTYLE, 10, 20, 25, 350, null));
 
         Team s = new Team(c, null);
         s.showMemberList();

@@ -53,12 +53,12 @@ public class CompetitiveMember extends Member {
                         return;
                     }
                 }
-                System.out.printf("WOW!!!!!!!!!! You beat your best result by: %d", sec);
+                System.out.printf("WOW!!!!!!!!!! You beat your best result by: %d seconds", sec);
                 results.remove(r);
-                results.add(new Result(disp, min, sec, milli, dist));
+                results.add(new Result(disp, min, sec, milli, dist, this));
                 return;
             }
-            results.add(new Result(disp, min, sec, milli, dist));
+            results.add(new Result(disp, min, sec, milli, dist, this));
         }
     }
 
