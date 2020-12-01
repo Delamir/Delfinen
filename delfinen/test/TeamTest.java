@@ -1,12 +1,13 @@
 import org.junit.jupiter.api.Test;
 import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 class TeamTest {
 
     @Test
     void registerResult() {
-        Team t = new Team(null, null);
+        Team t = new Team(new ArrayList<>(Arrays.asList(new CompetitiveMember(18,"Bo",new ArrayList<>(Arrays.asList(Discipline.BACKSTROKE))))), null);
         ByteArrayInputStream in = new ByteArrayInputStream("12\n23\n25\n666\n\n23\n25\n12\n\n23\nki\n".getBytes());
         System.setIn(in);
         t.registerResult();

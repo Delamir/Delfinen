@@ -26,7 +26,6 @@ public class Result implements Comparable<Result> {
     }
 
     public int getMin() {
-        System.out.println(milli);
         return milli/MIN_TO_MILLI;
     }
 
