@@ -2,24 +2,32 @@ import java.text.Format;
 
 public class Result implements Comparable<Result> {
     private CompetitiveMember cm;
-    private int min;
-    private int sec;
     private int milli;
     private int dist;
 
-    private Discipline disp;
+    public static final int MIN_TO_MILLI = 60000;
+    public static final int SEC_TO_MILLI = 1000;
+    private final Discipline disp;
 
     public Result(Discipline disp, int min, int sec, int milli, int dist, CompetitiveMember cm) {
         this.disp = disp;
-        this.min = min;
-        this.sec = sec;
-        this.milli = milli;
+        this.milli += min*MIN_TO_MILLI;
+        this.milli += sec*SEC_TO_MILLI;
+        this.milli += milli;
         this.dist = dist;
         this.cm = cm;
     }
 
+    public Result(Discipline disp, int milli, CompetitiveMember cm){
+        this.disp = disp;
+        this.milli = milli;
+        this.cm = cm;
+        dist = 0;
+    }
+
     public int getMin() {
-        return min;
+        System.out.println(milli);
+        return milli/MIN_TO_MILLI;
     }
 
     public CompetitiveMember getCm() {
@@ -27,11 +35,11 @@ public class Result implements Comparable<Result> {
     }
 
     public int getSec() {
-        return sec;
+        return (milli % MIN_TO_MILLI)/SEC_TO_MILLI;
     }
 
     public int getMilli() {
-        return milli;
+        return milli % SEC_TO_MILLI;
     }
 
     public int getDist() {
@@ -39,8 +47,11 @@ public class Result implements Comparable<Result> {
     }
 
     public String getTime() {
+        int min = milli/MIN_TO_MILLI;
+        int sec = (milli % MIN_TO_MILLI)/SEC_TO_MILLI;
+
         String s = " %02d" + ":" + "%02d" + ":" + "%04d";
-        return String.format(s, min, sec, milli);
+        return String.format(s, min, sec, milli % SEC_TO_MILLI);
     }
 
     public Discipline getDisp() {
@@ -49,6 +60,6 @@ public class Result implements Comparable<Result> {
 
     @Override
     public int compareTo(Result o) {
-        return Integer.compare(min * 60 * 1000+ sec* 1000 + milli,o.min * 60 * 1000+ o.sec* 1000 + o.milli);
+        return Integer.compare(milli, o.milli);
     }
 }
