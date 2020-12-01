@@ -42,5 +42,4 @@ class TeamTest {
         Team s = new Team(c, null);
         s.showMemberList();
     }
-
 }

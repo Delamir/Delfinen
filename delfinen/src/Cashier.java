@@ -1,6 +1,9 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 
+/**
+ * A class for the cashier to manage subscriptions
+ * @author Patrick & Christian
+ */
 public class Cashier {
 
     private static final String MAIN_MENU_HEADER = "Cashiers Register";
@@ -15,6 +18,11 @@ public class Cashier {
     Menu mainMenu = new Menu(MAIN_MENU_HEADER, LEAD_TEXT, MAIN_MENU_POINT);
     Menu subMenu = new Menu(SUB_MENU_HEADER, LEAD_TEXT, SUB_MENU_POINT);
 
+    /**
+     * The constructor for the class
+     * @param memberList is the list of the members of the swimming club
+     * @author Patrick & Chrsitian
+     */
     public Cashier(ArrayList<Member> memberList) {
         this.memberList = memberList;
         for(Member m : memberList) {
@@ -24,6 +32,10 @@ public class Cashier {
         }
     }
 
+    /**
+     * A method to show the cashier menu
+     * @author Christian
+     */
     public void showMenu() {
 
         while (!logOut) {
@@ -45,6 +57,10 @@ public class Cashier {
         }
     }
 
+    /**
+     * Show the total amount of membership fee that the club can expect
+     * @author Patrick
+     */
     public void subscriptionOverview() {
         double total = 0;
 
@@ -54,6 +70,10 @@ public class Cashier {
         System.out.printf("Total amount of membership fee (dough): %.2fDKK\n", total);
     }
 
+    /**
+     * A method that shows the menu of options for the different state of arrears
+     * @author Patrick
+     */
     public void arrears() {
         while (!logOut) {
             subMenu.printMenu();
@@ -77,10 +97,29 @@ public class Cashier {
         }
     }
 
+    /**
+     * A method to pay arrears
+     * @author Christian
+     */
     public void payArrears() {
+        String name;
 
+        System.out.println("Remove a member from the arrears list: ");
+        name = ScannerMethods.stringInput();
+
+        for(Member m : memberList) {
+            if(m.getName().toLowerCase().contains(name.toLowerCase())) {
+                arrearsMembers.remove(m);
+                m.setPaymentStatus(true);
+            }
+        }
+        checkArrears();
     }
 
+    /**
+     * A method to add members to a list of arrears
+     * @author Patrick og Christian
+     */
     public void addMemberToArrears() {
         String name;
 
@@ -93,11 +132,23 @@ public class Cashier {
                 m.setPaymentStatus(false);
             }
         }
+        checkArrears();
+    }
+
+    /**
+     * Check id the list contains a searched parameter
+     * @author Christian
+     */
+    public void checkArrears() {
         if(arrearsMembers.size() == 0) {
             System.out.println("There is no member with that name");
         }
     }
 
+    /**
+     * The run method to run the whole class
+     * @author Christian
+     */
     public void run() {
         showMenu();
     }
