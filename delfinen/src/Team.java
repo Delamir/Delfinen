@@ -87,6 +87,8 @@ public class Team {
 
     public void registerTournament() {
 
+        // Needs localdate to register, as they shouldn't be able to create a tournament before today's date
+
         String name, address;
         ArrayList<Discipline> disciplines = new ArrayList<>();
 
