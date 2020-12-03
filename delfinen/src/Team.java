@@ -144,6 +144,9 @@ public class Team {
         Menu menu;
         Tournament tournament;
         CompetitiveMember member;
+        tournament = ScannerMethods.menuInput("Tournament", "Choose tournament:", tournamentList, false);
+        member = ScannerMethods.menuInput("Member", "Choose member:", memberList, false);
+        /*
         String[] tour = new String[tournamentList.size()];
         String[] memb = new String[memberList.size()];
 
@@ -160,7 +163,7 @@ public class Team {
         menu = new Menu("Member", "Choose member", memb);
         choice = getChoice(menu, memberList.size());
         member = memberList.get(choice-1);
-
+*/
         System.out.printf("%s has been appointed to the tournament: %s ", member, tournament);
     }
 
@@ -174,6 +177,8 @@ public class Team {
         Discipline d;
 
         member = ScannerMethods.menuInput("Member", "Choose member:", memberList, false);
+        if (member == null)
+            return;
         d = ScannerMethods.menuInput("Dicipline", "Choose dicipline", member.getDisciplines(), false);
 /*
         String[] memb = new String[memberList.size()];
@@ -220,19 +225,6 @@ public class Team {
         System.out.printf("The distance was: %d " + "meters" + "in the discipline %s", dist, d);
         member.addResults(d, min, sec, milli, dist);
 
-    }
-
-    private int getChoice(Menu menu, int size) {
-        menu.printMenu();
-
-        int choice = 0;
-        boolean validTournament = false;
-        while (!validTournament) {
-            choice = menu.readChoice();
-            if (choice > 0 && choice <= size)
-                validTournament = true;
-        }
-        return choice;
     }
 
     /**

@@ -51,8 +51,7 @@ public class ScannerMethods {
     public static <T> T menuInput(String title, String prefix, ArrayList<T> menuPoints, boolean hasExit){
 
         Menu menu = new Menu(title, prefix, listAsStringArray(menuPoints, hasExit) , IN);
-        menu.printMenu();
-        int choice = menu.readChoice();
+        int choice = getChoice(menu,menuPoints.size()+(hasExit ? 1 : 0));
         if (choice == menuPoints.size() && hasExit)
             return null;
         return menuPoints.get(choice-1);
@@ -67,6 +66,19 @@ public class ScannerMethods {
             arrayToReturn[arrayToReturn.length-1] = arrayToReturn.length + ". Exit";
 
         return arrayToReturn;
+    }
+
+    private static int getChoice(Menu menu, int size) {
+        menu.printMenu();
+
+        int choice = 0;
+        boolean validChoice = false;
+        while (!validChoice) {
+            choice = menu.readChoice();
+            if (choice > 0 && choice <= size)
+                validChoice = true;
+        }
+        return choice;
     }
 
     public static Scanner getIN() {

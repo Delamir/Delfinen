@@ -8,7 +8,7 @@ class TeamTest {
     @Test
     void registerResult() {
         Team t = new Team(new ArrayList<>(Arrays.asList(new CompetitiveMember(18,"Bo",new ArrayList<>(Arrays.asList(Discipline.BACKSTROKE))))), null);
-        ByteArrayInputStream in = new ByteArrayInputStream("1\n3\n100\n".getBytes());
+        ByteArrayInputStream in = new ByteArrayInputStream("1\n1\n100\n10\n10\n10\n".getBytes());
         System.setIn(in);
         t.registerResult();
     }
