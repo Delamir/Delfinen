@@ -1,36 +1,12 @@
+import java.time.*;
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Sverri og Joachim
  */
 
 public class Team {
-    int year;
-    int month;
-    int day;
-    int hour;
-    int min;
-    int sec;
-    int milli;
-    int dist;
-    final int yearMin = 2020;
-    final int yearMax = 3000;
-    final int monthMin = 1;
-    final int monthMax = 12;
-    final int dayMin = 1;
-    final int dayMax = 31;
-    final int hourMin = 9;
-    final int hourMax = 18;
-    final int minuteMin = 0;
-    final int minuteMax = 59;
-    final int secMin = 0;
-    final int secMax = 59;
-    final int milliMin = 0;
-    final int milliMax = 999;
-    final int distMin = 10;
-    final int distMax = 25000;
-
-
     private final String MENU_HEADER = "Register tournament";
     private final String LEAD_TEXT = "Please choose: ";
     private final String[] MENU_POINT = {"1. Register tournament", "2. Show swim results",
@@ -87,24 +63,40 @@ public class Team {
         // Needs localdate to register, as they shouldn't be able to create a tournament before today's date
 
         String name, address;
-        ArrayList<Discipline> disciplines = ScannerMethods.menuInputs("Discipline","Choose:",Discipline.asList());
+        ArrayList<Discipline> disciplines = ScannerMethods.menuInputs("Discipline", "Choose:", Discipline.asList());
 
         System.out.println("Enter name of the tournament: ");
         name = ScannerMethods.stringInput();
         System.out.println("Enter address of the tournament: ");
         address = ScannerMethods.stringInput();
-        System.out.println("Enter year:");
-        year = (int) ScannerMethods.validNumberInput(yearMin, yearMax, "Invalid year. Please try again: ");
-        System.out.println("Enter month: ");
-        month = (int) ScannerMethods.validNumberInput(monthMin, monthMax, "Invalid month. Please try again: ");
-        System.out.println("Enter day: ");
-        day = (int) ScannerMethods.validNumberInput(dayMin, dayMax, "Invalid day. Please try again: ");
-        System.out.println("Enter hour: ");
-        hour = (int) ScannerMethods.validNumberInput(hourMin, hourMax, "Invalid hour. Please try again: ");
-        System.out.println("Enter minute: ");
-        min = (int) ScannerMethods.validNumberInput(minuteMin, minuteMax, "Invalid minute. Please try again: ");
-        System.out.printf("Tournament %s has been registered at %s. Date for tournament is: %d" + "-" + "%d" + "-"
-                + "%d. Time: %d" + "." + "%d", name, address, year, month, day, hour, min);
+
+        boolean valid = false;
+        int year = 0;
+        int month = 0;
+        int day = 0;
+        int hour = 0;
+        int min = 0;
+        while (!valid) {
+            System.out.println("Enter year:");
+            year = (int) ScannerMethods.validNumberInput(LocalDate.now().getYear(), Integer.MAX_VALUE, "Invalid year. Please try again: ");
+            System.out.println("Enter month: ");
+            month = (int) ScannerMethods.validNumberInput(1, Month.values().length, "Invalid month. Please try again: ");
+            System.out.println("Enter day: ");
+            day = (int) ScannerMethods.validNumberInput(1, Month.of(month).length(year % 4 == 0), "Invalid day. Please try again: ");
+            System.out.println("Enter hour: ");
+            hour = (int) ScannerMethods.validNumberInput(0, TimeUnit.DAYS.toHours(1) - 1, "Invalid hour. Please try again: ");
+            System.out.println("Enter minute: ");
+            min = (int) ScannerMethods.validNumberInput(0, TimeUnit.HOURS.toMinutes(1) - 1, "Invalid minute. Please try again: ");
+            System.out.printf("Tournament %s has been registered at %s. Date for tournament is: %d" + "-" + "%d" + "-"
+                    + "%d. Time: %d" + "." + "%d", name, address, year, month, day, hour, min);
+            LocalDateTime time = LocalDateTime.of(LocalDate.of(year, month, day), LocalTime.of(hour, min));
+            if (time.compareTo(LocalDateTime.now()) > 0) {
+                valid = true;
+            } else {
+                System.out.println("the date has already passed try again");
+            }
+
+        }
         tournamentList.add(new Tournament(year, month, day, hour, min, disciplines, name, address));
     }
 
@@ -127,24 +119,25 @@ public class Team {
     public void registerResult() {
 
         CompetitiveMember member;
-        Discipline d;
+        Discipline discipline;
+        int dist, min, sec, milli;
 
         member = ScannerMethods.menuInput("Member", "Choose member:", memberList, false);
         if (member == null)
             return;
-        d = ScannerMethods.menuInput("Dicipline", "Choose dicipline", member.getDisciplines(), false);
+        discipline = ScannerMethods.menuInput("Dicipline", "Choose dicipline", member.getDisciplines(), false);
 
         System.out.println("Enter distance of the discipline in meters: ");
-        dist = (int) ScannerMethods.validNumberInput(distMin, distMax, "Invalid distance. Please try again");
+        dist = (int) ScannerMethods.validNumberInput(0, Integer.MAX_VALUE, "Invalid distance. Please try again");
         System.out.println("Enter minutes: ");
-        min = (int) ScannerMethods.validNumberInput(minuteMin, minuteMax, "Invalid minute. Please try again: ");
+        min = (int) ScannerMethods.validNumberInput(0, TimeUnit.HOURS.toMinutes(1)-1, "Invalid minute. Please try again: ");
         System.out.println("Enter seconds: ");
-        sec = (int) ScannerMethods.validNumberInput(secMin, secMax, "Invalid second. Please try again: ");
+        sec = (int) ScannerMethods.validNumberInput(0, TimeUnit.MINUTES.toSeconds(1)-1, "Invalid second. Please try again: ");
         System.out.println("Enter milliseconds: ");
-        milli = (int) ScannerMethods.validNumberInput(milliMin, milliMax, "Invalid milliseconds. Please try again: ");
+        milli = (int) ScannerMethods.validNumberInput(0, TimeUnit.SECONDS.toMillis(1)-1, "Invalid milliseconds. Please try again: ");
         System.out.printf("The time was: %02d" + ":" + "%02d" + ":" + "%04d\n", min, sec, milli);
-        System.out.printf("The distance was: %d " + "meters" + "in the discipline %s", dist, d);
-        member.addResults(d, min, sec, milli, dist);
+        System.out.printf("The distance was: %d " + "meters" + "in the discipline %s", dist, discipline);
+        member.addResults(discipline, min, sec, milli, dist);
 
     }
 
