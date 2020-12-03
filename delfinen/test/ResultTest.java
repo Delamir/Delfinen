@@ -16,7 +16,7 @@ class ResultTest {
         results.add(r2);
         results.add(r1);
         Collections.sort(results);
-        assertTrue(results.get(0).equals(r1));
+        assertEquals(r1, results.get(0));
 
     }
 }

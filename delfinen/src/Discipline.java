@@ -11,7 +11,7 @@ public enum Discipline {
     DROWNING("Drowning"),
     SPLASHING("Splashing");
 
-    private String desc;
+    private final String desc;
 
     Discipline(String desc) {
         this.desc = desc;

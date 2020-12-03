@@ -1,5 +1,3 @@
-import java.text.Format;
-
 public class Result implements Comparable<Result> {
     private CompetitiveMember cm;
     private int milli;

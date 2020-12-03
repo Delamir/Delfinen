@@ -1,17 +1,12 @@
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.concurrent.TimeUnit;
 
 public class Ranking {
 
-    private ArrayList<Result[]> results;
-    private ArrayList<CompetitiveMember> competitiveMembers;
+    private final ArrayList<Result[]> results;
 
 
     public Ranking(ArrayList<CompetitiveMember> competitiveMembers) {
-        this.competitiveMembers = competitiveMembers;
         results = new ArrayList<>();
 
         for (int i = 0; i < Discipline.values().length; i++) {
@@ -47,7 +42,7 @@ public class Ranking {
             System.out.printf("\nDiscipline: %s", Discipline.values()[results.indexOf(r)]);
             for (int i = 0; i < r.length; i++) {
                 if (r[i].getCm() == null) {
-                    System.out.println("");
+                    System.out.println();
                 } else {
                     System.out.printf("\n%d. Place goes to %s with a time of: %s", i + 1, r[i].getCm().getName(), r[i].getTime());
                 }

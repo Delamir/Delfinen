@@ -1,7 +1,4 @@
-import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.EnumSet;
-import static java.awt.SystemColor.menu;
 
 /**
  * Sverri og Joachim
@@ -39,8 +36,8 @@ public class Team {
     private final String[] MENU_POINT = {"1. Register tournament", "2. Show swim results",
             "3. Appoint tournament participants", "4. Register swimming results"};
 
-    ArrayList<CompetitiveMember> memberList = new ArrayList<>();
-    ArrayList<Tournament> tournamentList = new ArrayList<>();
+    ArrayList<CompetitiveMember> memberList;
+    ArrayList<Tournament> tournamentList;
 
     Menu menu = new Menu(MENU_HEADER, LEAD_TEXT, MENU_POINT);
 

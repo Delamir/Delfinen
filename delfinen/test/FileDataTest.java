@@ -10,7 +10,7 @@ class FileDataTest {
      * @author Sverri og Patrick
      */
     @Test
-    void FileDataTest() {
+    void fileDataTest() {
         ArrayList<String> testData = new ArrayList<>();
         String fileNameTest = "test.ser";
         testData.add("Sverri er bedste Sylas i DK og FO");

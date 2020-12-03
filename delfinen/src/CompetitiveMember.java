@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 
 public class CompetitiveMember extends Member {
-    private ArrayList<Discipline> disciplines = new ArrayList<>();
+    private ArrayList<Discipline> disciplines;
 
     private ArrayList<Result> results = new ArrayList<>();
 
