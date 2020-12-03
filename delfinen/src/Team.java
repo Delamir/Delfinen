@@ -87,36 +87,8 @@ public class Team {
         // Needs localdate to register, as they shouldn't be able to create a tournament before today's date
 
         String name, address;
-        ArrayList<Discipline> disciplines = new ArrayList<>();
+        ArrayList<Discipline> disciplines = ScannerMethods.menuInputs("Discipline","Choose:",Discipline.asList());
 
-        String[] disc = new String[Discipline.values().length + 1];
-
-        for (int i = 0; i < disc.length - 1; i++) {
-            disc[i] = (i + 1) + ". " + Discipline.values()[i].toString();
-        }
-
-        disc[disc.length - 1] = "9. EXIT";
-
-        Menu menu = new Menu("Discipline", "Choose: ", disc);
-
-        System.out.println("Which discipline do you wish to choose: ");
-        menu.printMenu();
-        boolean logOut = false;
-        while (!logOut) {
-            switch (menu.readChoice()) {
-                case 1 -> disciplines.add(Discipline.FREESTYLE);
-                case 2 -> disciplines.add(Discipline.BUTTERFLY);
-                case 3 -> disciplines.add(Discipline.BACKSTROKE);
-                case 4 -> disciplines.add(Discipline.BREASTSTROKE);
-                case 5 -> disciplines.add(Discipline.DROWNING);
-                case 6 -> disciplines.add(Discipline.SPLASHING);
-                case 9 -> {
-                    System.out.println("Choose your disciplines: ");
-                    logOut = true;
-                }
-                default -> System.out.println("Not a valid input, please try again");
-            }
-        }
         System.out.println("Enter name of the tournament: ");
         name = ScannerMethods.stringInput();
         System.out.println("Enter address of the tournament: ");
@@ -144,24 +116,7 @@ public class Team {
         CompetitiveMember member;
         tournament = ScannerMethods.menuInput("Tournament", "Choose tournament:", tournamentList, false);
         member = ScannerMethods.menuInput("Member", "Choose member:", memberList, false);
-        /*
-        String[] tour = new String[tournamentList.size()];
-        String[] memb = new String[memberList.size()];
 
-        for (int i = 0; i < tour.length; i++)
-            tour[i] = (i + 1) + ". " + tournamentList.get(i).getName();
-
-        menu = new Menu("Tournament", "Choose tournament", tour);
-        choice = getChoice(menu, tournamentList.size());
-        tournament = tournamentList.get(choice-1);
-
-        for (int i = 0; i < memb.length; i++)
-            memb[i] = (i + 1) + ". " + memberList.get(i).getName();
-
-        menu = new Menu("Member", "Choose member", memb);
-        choice = getChoice(menu, memberList.size());
-        member = memberList.get(choice-1);
-*/
         System.out.printf("%s has been appointed to the tournament: %s ", member, tournament);
     }
 
@@ -178,39 +133,7 @@ public class Team {
         if (member == null)
             return;
         d = ScannerMethods.menuInput("Dicipline", "Choose dicipline", member.getDisciplines(), false);
-/*
-        String[] memb = new String[memberList.size()];
 
-        for (int i = 0; i < memb.length; i++)
-            memb[i] = (i + 1) + ". " + memberList.get(i).getName();
-
-        Menu menu = new Menu("Member", "Choose member", memb);
-        int choice = getChoice(menu, memberList.size());
-        member = memberList.get(choice-1);
-
-        System.out.println("Discipline: ");
-        String[] disp = new String[Discipline.values().length + 1];
-
-        for (int i = 0; i < disp.length - 1; i++) {
-            disp[i] = (i + 1) + ". " + Discipline.values()[i].toString();
-        }
-        disp[disp.length - 1] = 9 + ". Exit";
-        menu = new Menu("Discipline", "Choose Discipline", disp);
-        menu.printMenu();
-        boolean valid = false;
-        while (!valid) {
-            switch (menu.readChoice()) {
-                case 1 -> d = Discipline.FREESTYLE;
-                case 2 -> d = Discipline.BUTTERFLY;
-                case 3 -> d = Discipline.BACKSTROKE;
-                case 4 -> d = Discipline.BREASTSTROKE;
-                case 5 -> d = Discipline.DROWNING;
-                case 6 -> d = Discipline.SPLASHING;
-            }
-            if (d != null)
-                valid = true;
-        }
-        */
         System.out.println("Enter distance of the discipline in meters: ");
         dist = (int) ScannerMethods.validNumberInput(distMin, distMax, "Invalid distance. Please try again");
         System.out.println("Enter minutes: ");
