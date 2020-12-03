@@ -170,10 +170,12 @@ public class Team {
 
     public void registerResult() {
 
-        Discipline d = null;
-
         CompetitiveMember member;
+        Discipline d;
 
+        member = ScannerMethods.menuInput("Member", "Choose member:", memberList, false);
+        d = ScannerMethods.menuInput("Dicipline", "Choose dicipline", member.getDisciplines(), false);
+/*
         String[] memb = new String[memberList.size()];
 
         for (int i = 0; i < memb.length; i++)
@@ -205,6 +207,7 @@ public class Team {
             if (d != null)
                 valid = true;
         }
+        */
         System.out.println("Enter distance of the discipline in meters: ");
         dist = (int) ScannerMethods.validNumberInput(distMin, distMax, "Invalid distance. Please try again");
         System.out.println("Enter minutes: ");

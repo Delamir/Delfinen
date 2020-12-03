@@ -8,16 +8,9 @@ class TeamTest {
     @Test
     void registerResult() {
         Team t = new Team(new ArrayList<>(Arrays.asList(new CompetitiveMember(18,"Bo",new ArrayList<>(Arrays.asList(Discipline.BACKSTROKE))))), null);
-        ByteArrayInputStream in = new ByteArrayInputStream("12\n23\n25\n666\n\n23\n25\n12\n\n23\nki\n".getBytes());
+        ByteArrayInputStream in = new ByteArrayInputStream("1\n3\n100\n".getBytes());
         System.setIn(in);
         t.registerResult();
-
-        System.setIn(in);
-        t.registerResult();
-
-        System.setIn(in);
-        t.registerResult();
-
     }
 
     @Test

@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -45,5 +46,30 @@ public class ScannerMethods {
      */
     public static String stringInput(){
         return IN.nextLine();
+    }
+
+    public static <T> T menuInput(String title, String prefix, ArrayList<T> menuPoints, boolean hasExit){
+
+        Menu menu = new Menu(title, prefix, listAsStringArray(menuPoints, hasExit) , IN);
+        menu.printMenu();
+        int choice = menu.readChoice();
+        if (choice == menuPoints.size() && hasExit)
+            return null;
+        return menuPoints.get(choice-1);
+    }
+
+    private static <T> String[] listAsStringArray(ArrayList<T> list, boolean hasExit){
+        String[] arrayToReturn = new String[list.size()+(hasExit ? 1 : 0)];
+
+        for (int i = 0; i < arrayToReturn.length; i++)
+            arrayToReturn[i] = (i + 1) + ". " + list.get(i).toString();
+        if(hasExit)
+            arrayToReturn[arrayToReturn.length-1] = arrayToReturn.length + ". Exit";
+
+        return arrayToReturn;
+    }
+
+    public static Scanner getIN() {
+        return IN;
     }
 }

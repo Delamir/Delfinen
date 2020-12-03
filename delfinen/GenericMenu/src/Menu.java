@@ -24,6 +24,13 @@ public class Menu {
         setMenuPoints(menuPoints);
     }
 
+    public Menu(String menuHeader, String leadText, String[] menuPoints, Scanner in) {
+        setMenuHeader(menuHeader);
+        setLeadText(leadText);
+        setMenuPoints(menuPoints);
+        this.in = in;
+    }
+
     public void setMenuHeader(String menuHeader) {
         this.menuHeader = menuHeader;
     }
