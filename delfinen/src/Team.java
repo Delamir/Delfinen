@@ -108,7 +108,7 @@ public class Team {
         CompetitiveMember member;
         tournament = ScannerMethods.menuInput("Tournament", "Choose tournament:", tournamentList, false);
         member = ScannerMethods.menuInput("Member", "Choose member:", memberList, false);
-
+        tournament.addParticipant(member);
         System.out.printf("%s has been appointed to the tournament: %s ", member, tournament);
     }
 
