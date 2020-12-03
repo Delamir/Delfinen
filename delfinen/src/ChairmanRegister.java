@@ -72,38 +72,7 @@ public class ChairmanRegister {
             System.out.print("Make your choice: ");
             exerciseCompetitive = (int) ScannerMethods.validNumberInput(optionOne, optionTwo, "Not a valid choice: ");
             if (exerciseCompetitive == optionOne) {
-                while (notDone) {
-                    Menu disciplineMenu = new Menu("Choose your desired discipline", LEAD_TEXT,
-                            new String[]{"1. FREESTYLE", "2. BUTTERFLY", "3. BACKSTROKE", "4. BREASTSTROKE",
-                                    "5. DROWNING", "6. SPLASHING", "9. Finish"});
-
-                    disciplineMenu.printMenu();
-                    switch (menu.readChoice()) {
-                        case 1:
-                            competitiveDisciplines.add(Discipline.FREESTYLE);
-                            break;
-                        case 2:
-                            competitiveDisciplines.add(Discipline.BUTTERFLY);
-                            break;
-                        case 3:
-                            competitiveDisciplines.add(Discipline.BACKSTROKE);
-                            break;
-                        case 4:
-                            competitiveDisciplines.add(Discipline.BREASTSTROKE);
-                            break;
-                        case 5:
-                            competitiveDisciplines.add(Discipline.DROWNING);
-                            break;
-                        case 6:
-                            competitiveDisciplines.add(Discipline.SPLASHING);
-                            break;
-                        case 9:
-                            notDone = false;
-                            break;
-                        default:
-                            System.out.println("Not a valid input, please try again");
-                    }
-                }
+                competitiveDisciplines = ScannerMethods.menuInputs("Choose your desired diciplines",LEAD_TEXT,Discipline.asList());
                 return new CompetitiveMember(age, name, competitiveDisciplines);
             } else {
                 return new ExerciseMember(age, name);
