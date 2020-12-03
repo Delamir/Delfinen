@@ -140,8 +140,6 @@ public class Team {
      * @author Joachim
      */
     public void appointParticipant() {
-        int choice;
-        Menu menu;
         Tournament tournament;
         CompetitiveMember member;
         tournament = ScannerMethods.menuInput("Tournament", "Choose tournament:", tournamentList, false);
