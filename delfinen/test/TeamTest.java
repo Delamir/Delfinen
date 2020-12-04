@@ -4,14 +4,26 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 class TeamTest {
 
     @Test
     void registerResult() {
-        Team t = new Team(new ArrayList<>(Arrays.asList(new CompetitiveMember(18,"Bo",new ArrayList<>(Arrays.asList(Discipline.BACKSTROKE))))), null);
+        CompetitiveMember m = new CompetitiveMember(18,"Bo",new ArrayList<>(Arrays.asList(Discipline.BACKSTROKE)));
+        Team t = new Team(new ArrayList<>(Arrays.asList(m)), null);
         ByteArrayInputStream in = new ByteArrayInputStream("1\n1\n100\n10\n10\n10\n".getBytes());
         System.setIn(in);
+
         t.registerResult();
+
+        Result r = new Result(Discipline.BACKSTROKE, 10, 10, 10, 100, m);
+
+        assertEquals(r.getCm(),m.getResults().get(0).getCm());
+        assertEquals(r.getDisp(),m.getResults().get(0).getDisp());
+        assertEquals(r.getDist(),m.getResults().get(0).getDist());
+        assertEquals(r.getMilli(),m.getResults().get(0).getMilli());
+
     }
 
     @Test
