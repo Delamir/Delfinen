@@ -15,9 +15,6 @@ public class Cashier {
     private ArrayList<Member> arrearsMembers = new ArrayList<>();
     private boolean logOut = false;
 
-    Menu mainMenu = new Menu(MAIN_MENU_HEADER, LEAD_TEXT, MAIN_MENU_POINT);
-    Menu subMenu = new Menu(SUB_MENU_HEADER, LEAD_TEXT, SUB_MENU_POINT);
-
     /**
      * The constructor for the class
      * @param memberList is the list of the members of the swimming club
@@ -39,8 +36,7 @@ public class Cashier {
     public void showMenu() {
 
         while (!logOut) {
-            mainMenu.printMenu();
-            switch (mainMenu.readChoice()) {
+            switch (ScannerMethods.mainMenuInput(MAIN_MENU_HEADER,LEAD_TEXT,MAIN_MENU_POINT)) {
                 case 1:
                     subscriptionOverview();
                     break;
@@ -76,8 +72,7 @@ public class Cashier {
      */
     public void arrears() {
         while (!logOut) {
-            subMenu.printMenu();
-            switch (subMenu.readChoice()) {
+            switch (ScannerMethods.mainMenuInput(SUB_MENU_HEADER,LEAD_TEXT,SUB_MENU_POINT)) {
                 case 1:
                     payArrears();
                     break;

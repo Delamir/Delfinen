@@ -68,6 +68,12 @@ public class ScannerMethods {
         return listToReturn;
     }
 
+    public static int mainMenuInput(String title, String prefix, String[] menuPoints){
+        Menu menu = new Menu(title, prefix, menuPoints);
+        menu.printMenu();
+        return menu.readChoice();
+    }
+
     public static <T> T menuInput(String title, String prefix, ArrayList<T> menuPoints, boolean hasExit) {
 
         Menu menu = new Menu(title, prefix, listAsStringArray(menuPoints, hasExit), IN);
