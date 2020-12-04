@@ -25,6 +25,9 @@ public class Tournament implements Serializable {
         participants.add(participant);
     }
 
+    public ArrayList<CompetitiveMember> getParticipants() {
+        return participants;
+    }
 
     public String getName() {
         return name;

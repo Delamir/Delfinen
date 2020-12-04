@@ -32,7 +32,6 @@ public class Ranking {
         }
     }
 
-
     /**
      * @author Sverri
      */
