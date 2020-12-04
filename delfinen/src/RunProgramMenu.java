@@ -11,6 +11,7 @@ public class RunProgramMenu {
     private static final String MEMBER_FILENAME = "MemberList.ser";
     private static final String TOURNAMENT_FILENAME = "Tournament.ser";
 
+
     private static ArrayList<Member> memberList;
     private static ArrayList<Tournament> tournamentList;
 

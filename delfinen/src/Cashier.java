@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 /**
  * A class for the cashier to manage subscriptions
+ *
  * @author Patrick & Christian
  */
 public class Cashier {
@@ -17,13 +18,14 @@ public class Cashier {
 
     /**
      * The constructor for the class
+     *
      * @param memberList is the list of the members of the swimming club
      * @author Patrick & Chrsitian
      */
     public Cashier(ArrayList<Member> memberList) {
         this.memberList = memberList;
-        for(Member m : memberList) {
-            if(!m.isPaymentStatus()) {
+        for (Member m : memberList) {
+            if (!m.isPaymentStatus()) {
                 arrearsMembers.add(m);
             }
         }
@@ -31,12 +33,13 @@ public class Cashier {
 
     /**
      * A method to show the cashier menu
+     *
      * @author Christian
      */
     public void showMenu() {
 
         while (!logOut) {
-            switch (ScannerMethods.mainMenuInput(MAIN_MENU_HEADER,LEAD_TEXT,MAIN_MENU_POINT)) {
+            switch (ScannerMethods.mainMenuInput(MAIN_MENU_HEADER, LEAD_TEXT, MAIN_MENU_POINT)) {
                 case 1:
                     subscriptionOverview();
                     break;
@@ -55,6 +58,7 @@ public class Cashier {
 
     /**
      * Show the total amount of membership fee that the club can expect
+     *
      * @author Patrick
      */
     public void subscriptionOverview() {
@@ -68,11 +72,12 @@ public class Cashier {
 
     /**
      * A method that shows the menu of options for the different state of arrears
+     *
      * @author Patrick
      */
     public void arrears() {
         while (!logOut) {
-            switch (ScannerMethods.mainMenuInput(SUB_MENU_HEADER,LEAD_TEXT,SUB_MENU_POINT)) {
+            switch (ScannerMethods.mainMenuInput(SUB_MENU_HEADER, LEAD_TEXT, SUB_MENU_POINT)) {
                 case 1:
                     payArrears();
                     break;
@@ -80,7 +85,7 @@ public class Cashier {
                     addMemberToArrears();
                     break;
                 case 3:
-                    System.out.println(arrearsMembers.toString());
+                    showMembersInArrears();
                     break;
                 case 9:
                     System.out.println("Logging out. Have a nice day");
@@ -92,27 +97,30 @@ public class Cashier {
         }
     }
 
+    public void showMembersInArrears() {
+        for (Member m : arrearsMembers) {
+            System.out.println(m.getName() + ": " + m.getMembershipFee());
+        }
+    }
+
     /**
      * A method to pay arrears
+     *
      * @author Christian
      */
     public void payArrears() {
-        String name;
 
         System.out.println("Remove a member from the arrears list: ");
-        name = ScannerMethods.stringInput();
-
-        for(Member m : memberList) {
-            if(m.getName().toLowerCase().contains(name.toLowerCase())) {
-                arrearsMembers.remove(m);
-                m.setPaymentStatus(true);
-            }
-        }
-        checkArrears();
+        Member m = (ScannerMethods.menuInput("Arrear list", "Pay arrears for member: ", arrearsMembers, true));
+        if (m == null)
+            return;
+        arrearsMembers.remove(m);
+        m.setPaymentStatus(true);
     }
 
     /**
      * A method to add members to a list of arrears
+     *
      * @author Patrick og Christian
      */
     public void addMemberToArrears() {
@@ -121,27 +129,18 @@ public class Cashier {
         System.out.print("Add a member to the list of arrears: ");
         name = ScannerMethods.stringInput();
 
-        for(Member m : memberList) {
-            if(m.getName().toLowerCase().contains(name.toLowerCase())) {
+        for (Member m : memberList) {
+            if (m.getName().toLowerCase().contains(name.toLowerCase())) {
                 arrearsMembers.add(m);
                 m.setPaymentStatus(false);
             }
         }
-        checkArrears();
     }
 
-    /**
-     * Check id the list contains a searched parameter
-     * @author Christian
-     */
-    public void checkArrears() {
-        if(arrearsMembers.size() == 0) {
-            System.out.println("There is no member with that name");
-        }
-    }
 
     /**
      * The run method to run the whole class
+     *
      * @author Christian
      */
     public void run() {
