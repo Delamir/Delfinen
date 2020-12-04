@@ -9,9 +9,7 @@ public class ChairmanRegister {
     private static final String MENU_HEADER = "Welcome Chairman";
     private static final String LEAD_TEXT = "Please choose: ";
     private static final String[] MENU_POINT = {"1. Register member", "9. Log out"};
-
     ArrayList<Member> memberList;
-    Menu menu = new Menu(MENU_HEADER, LEAD_TEXT, MENU_POINT);
 
     public ChairmanRegister(ArrayList<Member> memberList) {
         this.memberList = memberList;
@@ -23,10 +21,8 @@ public class ChairmanRegister {
      */
     public void showMenu() {
         boolean logOut = false;
-
         while (!logOut) {
-            menu.printMenu();
-            switch (menu.readChoice()) {
+            switch (ScannerMethods.mainMenuInput(MENU_HEADER,LEAD_TEXT,MENU_POINT)) {
                 case 1:
                     memberList.add(registerMember());
                     break;
