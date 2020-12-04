@@ -28,7 +28,5 @@ class FileDataTest {
         FileData<String> readFileData = new FileData<>(testReadData, fileNameTest);
         testReadData = readFileData.readFile();
         assertEquals(testReadData, testData);
-        System.out.println(testReadData);
-
     }
 }

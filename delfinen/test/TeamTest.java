@@ -1,5 +1,6 @@
 import org.junit.jupiter.api.Test;
 import java.io.ByteArrayInputStream;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -18,7 +19,7 @@ class TeamTest {
         ArrayList<Tournament> a = new ArrayList<>();
         ArrayList<Discipline> d = new ArrayList<>();
         d.add(Discipline.BACKSTROKE);
-        a.add(new Tournament(2020, 12, 10, 10, 10, d, "swimming class", "Delphin Rd."));
+        a.add(new Tournament(LocalDateTime.of(2020, 12, 10, 10, 10), d, "swimming class", "Delphin Rd."));
 
         Team s = new Team(null, a);
         s.showTournaments();

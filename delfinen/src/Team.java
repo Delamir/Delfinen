@@ -77,12 +77,14 @@ public class Team {
         System.out.println("Enter address of the tournament: ");
         address = ScannerMethods.stringInput();
 
-        boolean valid = false;
         int year = 0;
         int month = 0;
         int day = 0;
         int hour = 0;
         int min = 0;
+        LocalDateTime time = null;
+
+        boolean valid = false;
         while (!valid) {
             System.out.println("Enter year: ");
             year = (int) ScannerMethods.validNumberInput(LocalDate.now().getYear(), Integer.MAX_VALUE, "Invalid year. Please try again: ");
@@ -94,17 +96,16 @@ public class Team {
             hour = (int) ScannerMethods.validNumberInput(0, TimeUnit.DAYS.toHours(1) - 1, "Invalid hour. Please try again: ");
             System.out.println("Enter minute: ");
             min = (int) ScannerMethods.validNumberInput(0, TimeUnit.HOURS.toMinutes(1) - 1, "Invalid minute. Please try again: ");
-            LocalDateTime time = LocalDateTime.of(LocalDate.of(year, month, day), LocalTime.of(hour, min));
+            time = LocalDateTime.of(LocalDate.of(year, month, day), LocalTime.of(hour, min));
             if (time.compareTo(LocalDateTime.now()) > 0) {
                 valid = true;
             } else {
                 System.out.println("\nThe date has already passed try again");
             }
-
         }
         System.out.printf("Tournament %s has been registered at %s. Date for tournament is: %d" + "-" + "%d" + "-"
                 + "%d. Time: %d" + "." + "%d", name, address, year, month, day, hour, min);
-        tournamentList.add(new Tournament(year, month, day, hour, min, disciplines, name, address));
+        tournamentList.add(new Tournament(time, disciplines, name, address));
     }
 
     /**

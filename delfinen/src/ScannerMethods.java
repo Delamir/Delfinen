@@ -69,7 +69,7 @@ public class ScannerMethods {
     }
 
     public static int mainMenuInput(String title, String prefix, String[] menuPoints){
-        Menu menu = new Menu(title, prefix, menuPoints);
+        Menu menu = new Menu(title, prefix, menuPoints,IN);
         menu.printMenu();
         return menu.readChoice();
     }

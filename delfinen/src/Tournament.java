@@ -11,13 +11,13 @@ public class Tournament implements Serializable {
     private String address;
     private ArrayList<CompetitiveMember> participants  = new ArrayList<>();
 
-    public Tournament(int year, int month, int day, int hour, int minutes, ArrayList<Discipline> disciplines,
+    public Tournament(LocalDateTime dateTime, ArrayList<Discipline> disciplines,
                       String name, String address) {
 
         this.disciplines = disciplines;
         this.name = name;
         this.address = address;
-        dateTime = LocalDateTime.of(year, month, day, hour, minutes);
+        this.dateTime = dateTime;
     }
 
     public void addParticipant(CompetitiveMember participant){
