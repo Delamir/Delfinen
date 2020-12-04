@@ -63,8 +63,6 @@ public class Team {
 
     public void registerTournament() {
 
-        // Needs localdate to register, as they shouldn't be able to create a tournament before today's date
-
         String name, address;
         ArrayList<Discipline> disciplines = ScannerMethods.menuInputs("Discipline", "Choose:", Discipline.asList());
         if (disciplines.size() == 0)
