@@ -70,6 +70,11 @@ public class CompetitiveMember extends Member {
         return results;
     }
 
+    /**
+     *
+     * @return
+     * @author Joachim
+     */
     @Override
     public String toString() {
         return "Competitive Member: " + getName() + "\nDisciplines: " + disciplines + ", results: " + results;

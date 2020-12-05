@@ -106,7 +106,7 @@ public class Cashier {
     /**
      * A method to pay arrears
      *
-     * @author Christian
+     * @author Christian og Patrick
      */
     public void payArrears() {
 

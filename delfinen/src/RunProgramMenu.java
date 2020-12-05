@@ -59,6 +59,9 @@ public class RunProgramMenu {
         new FileData<Tournament>(tournamentList, TOURNAMENT_FILENAME).saveFile();
     }
 
+    /**
+     * @author Sverri, Joachim, Patrick & Christian
+     */
     public static void teamMenu() {
         ArrayList<CompetitiveMember> teamListJunior = new ArrayList<>();
         ArrayList<CompetitiveMember> teamListSenior = new ArrayList<>();
