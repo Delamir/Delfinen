@@ -33,11 +33,8 @@ public class RunProgramMenu {
         final String[] MENU_POINT = {"1. Register Member - Chairman", "2. Coach", "3. For Cashier", "9. Log out"};
         boolean logOut = false;
 
-        Menu menu = new Menu(MENU_HEADER, LEAD_TEXT, MENU_POINT);
-
         while (!logOut) {
-            menu.printMenu();
-            switch (menu.readChoice()) {
+            switch (ScannerMethods.mainMenuInput(MENU_HEADER, LEAD_TEXT, MENU_POINT)) {
                 case 1:
                     new ChairmanRegister(memberList).run();
                     break;
@@ -70,10 +67,7 @@ public class RunProgramMenu {
                     teamListSenior.add((CompetitiveMember) m);
             }
         }
-
-        Menu menu = new Menu("Delfinen Teams", "Please choose: ", new String[]{"1. Junior Team", "2. Senior Team"});
-        menu.printMenu();
-        switch (menu.readChoice()) {
+        switch (ScannerMethods.mainMenuInput("Delfinen Teams", "Please choose: ", new String[]{"1. Junior Team", "2. Senior Team"})) {
             case 1 -> new Team(teamListJunior, tournamentList).run();
             case 2 -> new Team(teamListSenior, tournamentList).run();
         }
