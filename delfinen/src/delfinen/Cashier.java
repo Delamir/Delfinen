@@ -15,9 +15,10 @@ public class Cashier {
     private static final String[] MAIN_MENU_POINT = {"1. Subscription Overview", "2. Arrears", "9. Log out"};
     private static final String[] SUB_MENU_POINT = {"1. Pay Arrears", "2. Add Members to Arrears", "3. Arrears Overview", "9. Log out"};
     private ArrayList<Member> memberList;
-    private ArrayList<Member> arrearsMembers = new ArrayList<>();
-    private boolean logOut = false;
 
+    private ArrayList<Member> arrearsMembers = new ArrayList<>();
+
+    private boolean logOut = false;
     /**
      * The constructor for the class
      *
@@ -147,5 +148,9 @@ public class Cashier {
      */
     public void run() {
         showMenu();
+    }
+
+    public ArrayList<Member> getArrearsMembers() {
+        return arrearsMembers;
     }
 }
