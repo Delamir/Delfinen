@@ -21,12 +21,18 @@ public enum Discipline {
         this.desc = desc;
     }
 
+    /**
+     * @author Joachim og Sverri
+     */
     public static ArrayList<Discipline> asList() {
         ArrayList<Discipline> list = new ArrayList<>();
         list.addAll(Arrays.asList(Discipline.values()));
         return list;
     }
 
+    /**
+     * @author Joachim
+     */
     @Override
     public String toString() {
         return desc;

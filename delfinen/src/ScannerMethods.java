@@ -68,12 +68,18 @@ public class ScannerMethods {
         return listToReturn;
     }
 
+    /**
+     * @author Sverri
+     */
     public static int mainMenuInput(String title, String prefix, String[] menuPoints){
         Menu menu = new Menu(title, prefix, menuPoints, in);
         menu.printMenu();
         return menu.readChoice();
     }
 
+    /**
+     * @author Sverri
+     */
     public static <T> T menuInput(String title, String prefix, ArrayList<T> menuPoints, boolean hasExit) {
 
         Menu menu = new Menu(title, prefix, listAsStringArray(menuPoints, hasExit), in);
@@ -83,6 +89,9 @@ public class ScannerMethods {
         return menuPoints.get(choice - 1);
     }
 
+    /**
+     * @author Sverri
+     */
     private static <T> String[] listAsStringArray(ArrayList<T> list, boolean hasExit) {
         String[] arrayToReturn = new String[list.size() + (hasExit ? 1 : 0)];
 
@@ -94,6 +103,9 @@ public class ScannerMethods {
         return arrayToReturn;
     }
 
+    /**
+     * @author Joachim
+     */
     private static int getChoice(Menu menu, int size) {
         menu.printMenu();
 
