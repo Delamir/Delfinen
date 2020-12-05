@@ -1,3 +1,5 @@
+package delfinen;
+
 public class PassiveMember extends Member {
 
     /**

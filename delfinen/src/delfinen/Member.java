@@ -1,3 +1,5 @@
+package delfinen;
+
 import java.io.Serializable;
 
 /**

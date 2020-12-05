@@ -1,3 +1,5 @@
+package delfinen;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -117,10 +119,6 @@ public class ScannerMethods {
                 validChoice = true;
         }
         return choice;
-    }
-
-    public static Scanner getIn() {
-        return in;
     }
 
     /**
