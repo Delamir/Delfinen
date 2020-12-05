@@ -42,24 +42,23 @@ public class CompetitiveMember extends Member {
      * @author Sverri og Joachim
      */
     public void addResults(Discipline disp, int min, int sec, int milli, int dist) {
+        Result newResult = new Result(disp, min, sec, milli, dist, this);
         if (disciplines.contains(disp)) {
             for (Result r : results) {
                 if (r.getDisp().equals(disp)) {
-                    if (r.getMin() > min) {
-                    } else if (r.getSec() > sec) {
-                    } else if (r.getMilli() > milli) {
+                    if (newResult.compareTo(r) < 0) {
+                        System.out.printf("WOW!!!!!!!!!! You beat your best result by: %d seconds", sec);
+                        results.remove(r);
+                        results.add(newResult);
                     } else {
                         System.out.println("Previous result was better!");
-                        return;
                     }
-                    System.out.printf("WOW!!!!!!!!!! You beat your best result by: %d seconds", sec);
-                    results.remove(r);
-                    results.add(new Result(disp, min, sec, milli, dist, this));
                     return;
                 }
             }
-            results.add(new Result(disp, min, sec, milli, dist, this));
-        }
+            results.add(newResult);
+        } else
+            System.out.println("this swimmer is not registered for " + disp);
     }
 
     public ArrayList<Discipline> getDisciplines() {

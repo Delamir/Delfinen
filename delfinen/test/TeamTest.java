@@ -1,8 +1,12 @@
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -10,10 +14,10 @@ class TeamTest {
 
     @Test
     void registerResult() {
-        CompetitiveMember m = new CompetitiveMember(18,"Bo",new ArrayList<>(Arrays.asList(Discipline.BACKSTROKE)));
-        Team t = new Team(new ArrayList<>(Arrays.asList(m)), null);
-        ByteArrayInputStream in = new ByteArrayInputStream("1\n1\n100\n10\n10\n10\n".getBytes());
-        System.setIn(in);
+        CompetitiveMember m = new CompetitiveMember(18,"Bo",new ArrayList<>(Collections.singletonList(Discipline.BACKSTROKE)));
+        Team t = new Team(new ArrayList<>(Collections.singletonList(m)), null);
+
+        ScannerMethods.setIn("1\n1\n100\n10\n10\n10\n");
 
         t.registerResult();
 

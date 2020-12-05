@@ -1,18 +1,23 @@
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class ChairmanRegisterTest {
 
+    private static InputStream sysIn;
+    
     @Test
     void registerMemberTest() {
+        ScannerMethods.setIn("1\n20\n1\n1\n1\n7\n");
         ArrayList<Member> memberList = new ArrayList<>();
         ChairmanRegister chairMan = new ChairmanRegister(memberList);
-        ByteArrayInputStream in = new ByteArrayInputStream("1\n20\n1\n1\n1\n7\n".getBytes());
-        System.setIn(in);
+
         memberList.add(chairMan.registerMember());
 
         assertEquals(1, memberList.size());
