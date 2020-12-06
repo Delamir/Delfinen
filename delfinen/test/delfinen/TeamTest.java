@@ -43,7 +43,7 @@ class TeamTest {
 
         Team team = new Team(new ArrayList<>(), new ArrayList<>());
 
-        ScannerMethods.setIn("1\n6\nAssdaq\nBurmeistersgade 5, 1429 KBH K\n2021\n10\n2\n10\n2\n");
+        ScannerMethods.setIn("1\n6\nAssdaq\nBurmeistersgade 5, 1429 KBH K\n2021\n02\n29\n28\n10\n2\n");
         team.registerTournament();
 
         Tournament t = new Tournament(null, d, "Assdaq", "Burmeistersgade 5, 1429 KBH K");
