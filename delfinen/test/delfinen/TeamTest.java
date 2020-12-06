@@ -25,15 +25,36 @@ class TeamTest {
 
         Result r = new Result(Discipline.BACKSTROKE, 10, 10, 10, 100, m);
 
-        assertEquals(r.getCm(),m.getResults().get(0).getCm());
-        assertEquals(r.getDisp(),m.getResults().get(0).getDisp());
-        assertEquals(r.getDist(),m.getResults().get(0).getDist());
-        assertEquals(r.getMilli(),m.getResults().get(0).getMilli());
+        assertEquals(r.getCm(), m.getResults().get(0).getCm());
+        assertEquals(r.getDisp(), m.getResults().get(0).getDisp());
+        assertEquals(r.getDist(), m.getResults().get(0).getDist());
+        assertEquals(r.getMilli(), m.getResults().get(0).getMilli());
 
     }
 
     /**
-     * @author Joachim
+     * @author Sverri og Joachim
+     */
+
+    @Test
+    void registerTournamentTest() {
+        ArrayList<Discipline> d = new ArrayList<>();
+        d.add(Discipline.FREESTYLE);
+
+        Team team = new Team(new ArrayList<>(), new ArrayList<>());
+
+        ScannerMethods.setIn("1\n7\nAssdaq\nBurmeistersgade 5, 1429 KBH K\n2021\n10\n2\n10\n2\n");
+        team.registerTournament();
+
+        Tournament t = new Tournament(null, d, "Assdaq", "Burmeistersgade 5, 1429 KBH K");
+
+        assertEquals(t.getAddress(), team.getTournamentList().get(0).getAddress());
+        assertEquals(t.getName(), team.getTournamentList().get(0).getName());
+        assertEquals(t.getDisciplines().get(0), team.getTournamentList().get(0).getDisciplines().get(0));
+    }
+
+    /**
+     * Sverri og Joachim
      */
     @Test
     void showTournamentsTest() {
@@ -60,5 +81,25 @@ class TeamTest {
 
         Team s = new Team(c, null);
         s.showMemberList();
+    }
+
+    /**
+     * @author Joachim
+     */
+    @Test
+    void appointParticipantTest() {
+        ArrayList<CompetitiveMember> c = new ArrayList<>();
+        ArrayList<Discipline> d = new ArrayList<>();
+        ArrayList<Tournament> t = new ArrayList<>();
+
+        d.add(Discipline.FREESTYLE);
+        c.add(new CompetitiveMember(20, "Sverri", d));
+        t.add(new Tournament(null, d, "Assdaq", "Burmeistersgade 5, 1429 KBH K"));
+
+        ScannerMethods.setIn("1\n1\n2\n");
+        Team q = new Team(c, t);
+        q.appointParticipant();
+
+        assertEquals("Sverri", t.get(0).getParticipants().get(0).getName());
     }
 }

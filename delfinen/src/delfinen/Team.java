@@ -14,8 +14,8 @@ public class Team {
     private final String[] MENU_POINT = {"1. Register tournament", "2. Show swim results",
             "3. Appoint tournament participants", "4. Register swimming results", "5. Show tournaments", "9. To exit"};
 
-    ArrayList<CompetitiveMember> memberList;
-    ArrayList<Tournament> tournamentList;
+    private ArrayList<CompetitiveMember> memberList;
+    private ArrayList<Tournament> tournamentList;
 
     public Team(ArrayList<CompetitiveMember> memberList, ArrayList<Tournament> tournamentList) {
 
@@ -23,6 +23,10 @@ public class Team {
         this.tournamentList = tournamentList;
 
     }
+
+    /**
+     * @author Errbody
+     */
 
     public void showMenu() {
         boolean logOut = false;
@@ -56,7 +60,6 @@ public class Team {
 
     /**
      * A method for registering a tournament
-     *
      * @author Sverri og Joachim
      */
 
@@ -100,8 +103,8 @@ public class Team {
                 System.out.println("\nThe date has already passed try again");
             }
         }
-        System.out.printf("Tournament %s has been registered at %s. Date for tournament is: %d" + "-" + "%d" + "-"
-                + "%d. Time: %d" + "." + "%d", name, address, year, month, day, hour, min);
+        System.out.printf("Tournament %s has been registered at %s. Date for tournament is: %d" + "-" + "%02d" + "-"
+                + "%02d. Time: %02d" + "." + "%02d", name, address, year, month, day, hour, min);
         tournamentList.add(new Tournament(time, disciplines, name, address));
     }
 
@@ -175,5 +178,13 @@ public class Team {
 
     public void run() {
         showMenu();
+    }
+
+    public ArrayList<CompetitiveMember> getMemberList() {
+        return memberList;
+    }
+
+    public ArrayList<Tournament> getTournamentList() {
+        return tournamentList;
     }
 }
