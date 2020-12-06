@@ -48,7 +48,7 @@ public class CompetitiveMember extends Member {
             for (Result r : results) {
                 if (r.getDisp().equals(disp)) {
                     if (newResult.compareTo(r) < 0) {
-                        System.out.printf("WOW!!!!!!!!!! You beat your best result by: %d seconds", sec);
+                        System.out.println("WOW!!!!!!!!!! You beat your best result");
                         results.remove(r);
                         results.add(newResult);
                     } else {
