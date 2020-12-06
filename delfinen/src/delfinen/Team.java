@@ -110,7 +110,7 @@ public class Team {
      */
     public void showMemberList() {
         for (CompetitiveMember m : memberList) {
-            System.out.println(m);
+            System.out.println(m.getName() + "\nDisciplines: " + m.getDisciplines() + ", results: " + m.getResults());
         }
     }
 
