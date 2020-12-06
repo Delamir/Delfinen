@@ -27,7 +27,6 @@ class TeamTest {
 
         assertEquals(r.getCm(), m.getResults().get(0).getCm());
         assertEquals(r.getDisp(), m.getResults().get(0).getDisp());
-        assertEquals(r.getDist(), m.getResults().get(0).getDist());
         assertEquals(r.getMilli(), m.getResults().get(0).getMilli());
 
     }

@@ -8,7 +8,6 @@ import java.io.Serializable;
 public class Result implements Comparable<Result>, Serializable {
     private CompetitiveMember cm;
     private int milli;
-    private int dist;
 
     public static final int MIN_TO_MILLI = 60000;
     public static final int SEC_TO_MILLI = 1000;
@@ -32,7 +31,6 @@ public class Result implements Comparable<Result>, Serializable {
         this.disp = disp;
         this.milli = milli;
         this.cm = cm;
-        dist = 0;
     }
 
     public int getMin() {
@@ -51,9 +49,6 @@ public class Result implements Comparable<Result>, Serializable {
         return milli % SEC_TO_MILLI;
     }
 
-    public int getDist() {
-        return dist;
-    }
 
     /**
      * @author Joachim
@@ -76,5 +71,10 @@ public class Result implements Comparable<Result>, Serializable {
     @Override
     public int compareTo(Result o) {
         return Integer.compare(milli, o.milli);
+    }
+
+    @Override
+    public String toString() {
+        return "Discipline: " + getDisp() + " time: " + getTime();
     }
 }
