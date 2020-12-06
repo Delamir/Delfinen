@@ -15,7 +15,7 @@ class ChairmanRegisterTest {
      */
     @Test
     void registerMemberTest() {
-        ScannerMethods.setIn("1\n20\n1\n1\n1\n7\n");
+        ScannerMethods.setIn("1\n20\n1\n1\n1\n6\n");
         ArrayList<Member> memberList = new ArrayList<>();
         ChairmanRegister chairMan = new ChairmanRegister(memberList);
 

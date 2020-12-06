@@ -40,11 +40,10 @@ public class CompetitiveMember extends Member {
      * @param min   the minutes it took the swim the lap
      * @param sec   the seconds
      * @param milli the milliseconds
-     * @param dist  the distance of the discipline
      * @author Sverri og Joachim
      */
-    public void addResults(Discipline disp, int min, int sec, int milli, int dist) {
-        Result newResult = new Result(disp, min, sec, milli, dist, this);
+    public void addResults(Discipline disp, int min, int sec, int milli) {
+        Result newResult = new Result(disp, min, sec, milli, this);
         if (disciplines.contains(disp)) {
             for (Result r : results) {
                 if (r.getDisp().equals(disp)) {

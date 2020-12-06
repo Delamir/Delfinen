@@ -152,8 +152,6 @@ public class Team {
         discipline = ScannerMethods.menuInput("Discipline", "Choose discipline", member.getDisciplines(), true);
         if (discipline == null)
             return;
-        System.out.println("Enter distance of the discipline in meters: ");
-        dist = (int) ScannerMethods.validNumberInput(0, Integer.MAX_VALUE, "Invalid distance. Please try again");
         System.out.println("Enter minutes: ");
         min = (int) ScannerMethods.validNumberInput(0, TimeUnit.HOURS.toMinutes(1) - 1, "Invalid minute. Please try again: ");
         System.out.println("Enter seconds: ");
@@ -161,8 +159,8 @@ public class Team {
         System.out.println("Enter milliseconds: ");
         milli = (int) ScannerMethods.validNumberInput(0, TimeUnit.SECONDS.toMillis(1) - 1, "Invalid milliseconds. Please try again: ");
         System.out.printf("The time was: %02d" + ":" + "%02d" + ":" + "%04d\n", min, sec, milli);
-        System.out.printf("The distance was: %d " + "meters" + "in the discipline %s", dist, discipline);
-        member.addResults(discipline, min, sec, milli, dist);
+        System.out.printf("in the discipline %s", discipline);
+        member.addResults(discipline, min, sec, milli);
     }
 
     /**

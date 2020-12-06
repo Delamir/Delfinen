@@ -33,23 +33,21 @@ class CompetitiveMemberTest {
         disciplines.add(Discipline.BACKSTROKE);
         disciplines.add(Discipline.DROWNING);
         CompetitiveMember result = new CompetitiveMember(17, "Bent", disciplines);
-        result.addResults(Discipline.BACKSTROKE, 1, 33,7, 5000);
+        result.addResults(Discipline.BACKSTROKE, 1, 33,7);
 
         assertEquals(1, result.getResults().get(0).getMin());
         assertEquals(33, result.getResults().get(0).getSec());
         assertEquals(7, result.getResults().get(0).getMilli());
-        assertEquals(5000, result.getResults().get(0).getDist());
 
         assertEquals(1, result.getResults().size());
-        result.addResults(Discipline.SPLASHING, 1, 33,7, 5000);
+        result.addResults(Discipline.SPLASHING, 1, 33,7);
         assertEquals(1, result.getResults().size());
 
-        result.addResults(Discipline.BACKSTROKE, 1, 25,50, 5000);
+        result.addResults(Discipline.BACKSTROKE, 1, 25,50);
         assertEquals(1, result.getResults().size());
         assertEquals(1, result.getResults().get(0).getMin());
         assertEquals(25, result.getResults().get(0).getSec());
         assertEquals(50, result.getResults().get(0).getMilli());
-        assertEquals(5000, result.getResults().get(0).getDist());
     }
 
 }

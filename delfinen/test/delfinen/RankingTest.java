@@ -24,16 +24,16 @@ class RankingTest {
         c.add(new CompetitiveMember(22, "Bacon", d));
         c.add(new CompetitiveMember(23, "Francis", d));
         c.add(new CompetitiveMember(98, "Shaniqua", d));
-        c.get(0).addResults(Discipline.FREESTYLE, 0, 0, 1, 50);
-        c.get(1).addResults(Discipline.FREESTYLE, 0, 0, 2, 50);
-        c.get(2).addResults(Discipline.FREESTYLE, 0, 0, 3, 50);
-        c.get(3).addResults(Discipline.FREESTYLE, 0, 0, 4, 50);
-        c.get(4).addResults(Discipline.FREESTYLE, 0, 0, 5, 50);
-        c.get(0).addResults(Discipline.BUTTERFLY, 0, 5, 1, 50);
-        c.get(1).addResults(Discipline.BUTTERFLY, 0, 4, 2, 50);
-        c.get(2).addResults(Discipline.BUTTERFLY, 0, 3, 3, 50);
-        c.get(3).addResults(Discipline.BUTTERFLY, 0, 2, 4, 50);
-        c.get(4).addResults(Discipline.BUTTERFLY, 0, 1, 5, 50);
+        c.get(0).addResults(Discipline.FREESTYLE, 0, 0, 1);
+        c.get(1).addResults(Discipline.FREESTYLE, 0, 0, 2);
+        c.get(2).addResults(Discipline.FREESTYLE, 0, 0, 3);
+        c.get(3).addResults(Discipline.FREESTYLE, 0, 0, 4);
+        c.get(4).addResults(Discipline.FREESTYLE, 0, 0, 5);
+        c.get(0).addResults(Discipline.BUTTERFLY, 0, 5, 1);
+        c.get(1).addResults(Discipline.BUTTERFLY, 0, 4, 2);
+        c.get(2).addResults(Discipline.BUTTERFLY, 0, 3, 3);
+        c.get(3).addResults(Discipline.BUTTERFLY, 0, 2, 4);
+        c.get(4).addResults(Discipline.BUTTERFLY, 0, 1, 5);
         Ranking ranking = new Ranking(c);
         ranking.showResults();
     }

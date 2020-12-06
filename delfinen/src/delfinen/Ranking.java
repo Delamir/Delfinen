@@ -19,7 +19,7 @@ public class Ranking {
         for (int i = 0; i < Discipline.values().length; i++) {
             Result[] result = new Result[5];
             for (int j = 0; j < result.length; j++) {
-                result[j] = new Result(null, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, 0, null);
+                result[j] = new Result(null, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, null);
             }
 
             results.add(result);

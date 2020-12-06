@@ -1,9 +1,11 @@
 package delfinen;
 
+import java.io.Serializable;
+
 /**
  * @author Joachim
  */
-public class Result implements Comparable<Result> {
+public class Result implements Comparable<Result>, Serializable {
     private CompetitiveMember cm;
     private int milli;
     private int dist;
@@ -15,12 +17,11 @@ public class Result implements Comparable<Result> {
     /**
      * @author Joachim
      */
-    public Result(Discipline disp, int min, int sec, int milli, int dist, CompetitiveMember cm) {
+    public Result(Discipline disp, int min, int sec, int milli, CompetitiveMember cm) {
         this.disp = disp;
         this.milli += min*MIN_TO_MILLI;
         this.milli += sec*SEC_TO_MILLI;
         this.milli += milli;
-        this.dist = dist;
         this.cm = cm;
     }
 
