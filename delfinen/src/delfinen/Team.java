@@ -1,3 +1,5 @@
+package delfinen;
+
 import java.time.*;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
@@ -15,9 +17,6 @@ public class Team {
     ArrayList<CompetitiveMember> memberList;
     ArrayList<Tournament> tournamentList;
 
-    Menu menu = new Menu(MENU_HEADER, LEAD_TEXT, MENU_POINT);
-
-
     public Team(ArrayList<CompetitiveMember> memberList, ArrayList<Tournament> tournamentList) {
 
         this.memberList = memberList;
@@ -29,8 +28,8 @@ public class Team {
         boolean logOut = false;
 
         while (!logOut) {
-            menu.printMenu();
-            switch (menu.readChoice()) {
+
+            switch (ScannerMethods.mainMenuInput(MENU_HEADER,LEAD_TEXT,MENU_POINT)) {
                 case 1:
                     registerTournament();
                     break;

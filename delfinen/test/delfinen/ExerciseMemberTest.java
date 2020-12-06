@@ -1,3 +1,7 @@
+package delfinen;
+
+import delfinen.ExerciseMember;
+import delfinen.Member;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

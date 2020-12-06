@@ -1,3 +1,5 @@
+package delfinen;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -9,7 +11,7 @@ import java.util.Scanner;
 
 public class ScannerMethods {
 
-    private static final Scanner IN = new Scanner(System.in);
+    private static Scanner in = new Scanner(System.in);
 
     /**
      * A method to check if the user input is legal
@@ -26,9 +28,9 @@ public class ScannerMethods {
         double legalNumber = -1;
 
         while (!validChoice) {
-            if (IN.hasNextDouble()) {
-                legalNumber = IN.nextDouble();
-                IN.nextLine(); //Scanner bug
+            if (in.hasNextDouble()) {
+                legalNumber = in.nextDouble();
+                in.nextLine(); //Scanner bug
                 if (legalNumber >= numberFrom && legalNumber <= numberTo) {
                     validChoice = true;
                 } else {
@@ -36,7 +38,7 @@ public class ScannerMethods {
                 }
             } else {
                 System.out.print(errorMessage);
-                IN.nextLine();
+                in.nextLine();
             }
         }
         return legalNumber;
@@ -49,7 +51,7 @@ public class ScannerMethods {
      * @author Sverri
      */
     public static String stringInput() {
-        return IN.nextLine();
+        return in.nextLine();
     }
 
     public static <T> ArrayList<T> menuInputs(String title, String prefix, ArrayList<T> menuPoints) {
@@ -69,21 +71,30 @@ public class ScannerMethods {
         return listToReturn;
     }
 
+    /**
+     * @author Sverri
+     */
     public static int mainMenuInput(String title, String prefix, String[] menuPoints){
-        Menu menu = new Menu(title, prefix, menuPoints,IN);
+        Menu menu = new Menu(title, prefix, menuPoints, in);
         menu.printMenu();
         return menu.readChoice();
     }
 
+    /**
+     * @author Sverri
+     */
     public static <T> T menuInput(String title, String prefix, ArrayList<T> menuPoints, boolean hasExit) {
 
-        Menu menu = new Menu(title, prefix, listAsStringArray(menuPoints, hasExit), IN);
+        Menu menu = new Menu(title, prefix, listAsStringArray(menuPoints, hasExit), in);
         int choice = getChoice(menu, menuPoints.size() + (hasExit ? 1 : 0));
         if (choice-1 == menuPoints.size() && hasExit)
             return null;
         return menuPoints.get(choice - 1);
     }
 
+    /**
+     * @author Sverri
+     */
     private static <T> String[] listAsStringArray(ArrayList<T> list, boolean hasExit) {
         String[] arrayToReturn = new String[list.size() + (hasExit ? 1 : 0)];
 
@@ -95,6 +106,9 @@ public class ScannerMethods {
         return arrayToReturn;
     }
 
+    /**
+     * @author Joachim
+     */
     private static int getChoice(Menu menu, int size) {
         menu.printMenu();
 
@@ -108,7 +122,12 @@ public class ScannerMethods {
         return choice;
     }
 
-    public static Scanner getIN() {
-        return IN;
+    /**
+     * for testing purposes
+     * @author Sverri
+     */
+    public static void setIn(String input){
+        in = new Scanner(input);
+
     }
 }

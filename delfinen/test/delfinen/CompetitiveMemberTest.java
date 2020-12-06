@@ -1,3 +1,7 @@
+package delfinen;
+
+import delfinen.CompetitiveMember;
+import delfinen.Discipline;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

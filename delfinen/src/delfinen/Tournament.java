@@ -1,8 +1,12 @@
+package delfinen;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-
+/**
+ * @author Patrick
+ */
 public class Tournament implements Serializable {
 
     private LocalDateTime dateTime;
@@ -11,6 +15,9 @@ public class Tournament implements Serializable {
     private String address;
     private ArrayList<CompetitiveMember> participants  = new ArrayList<>();
 
+    /**
+     * @author Patrick
+     */
     public Tournament(LocalDateTime dateTime, ArrayList<Discipline> disciplines,
                       String name, String address) {
 
@@ -45,6 +52,9 @@ public class Tournament implements Serializable {
         this.address = address;
     }
 
+    /**
+     * @author Patrick
+     */
     @Override
     public String toString() {
         return "Tournament: " + name + "\nDisciplines: " + disciplines +

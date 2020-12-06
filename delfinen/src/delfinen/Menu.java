@@ -1,7 +1,10 @@
+package delfinen;
+
 import java.util.Scanner;
 
 /**
  * Menu class, that create and print a menu of your choice
+ * @author Christian
  */
 
 public class Menu {
@@ -17,7 +20,7 @@ public class Menu {
      * @param menuHeader is the title of the menu
      * @param leadText   is the text in the bottom of the menu, that prompt the user on what to do next
      * @param menuPoints is all the menu point you want in your menu
-     */
+     * */
     public Menu(String menuHeader, String leadText, String[] menuPoints) {
         setMenuHeader(menuHeader);
         setLeadText(leadText);

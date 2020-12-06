@@ -1,11 +1,18 @@
+package delfinen;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * @author Sverri
+ */
 public class Ranking {
 
     private final ArrayList<Result[]> results;
 
-
+    /**
+     * @author Sverri
+     */
     public Ranking(ArrayList<CompetitiveMember> competitiveMembers) {
         results = new ArrayList<>();
 

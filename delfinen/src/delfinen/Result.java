@@ -1,3 +1,8 @@
+package delfinen;
+
+/**
+ * @author Joachim
+ */
 public class Result implements Comparable<Result> {
     private CompetitiveMember cm;
     private int milli;
@@ -7,6 +12,9 @@ public class Result implements Comparable<Result> {
     public static final int SEC_TO_MILLI = 1000;
     private final Discipline disp;
 
+    /**
+     * @author Joachim
+     */
     public Result(Discipline disp, int min, int sec, int milli, int dist, CompetitiveMember cm) {
         this.disp = disp;
         this.milli += min*MIN_TO_MILLI;
@@ -16,6 +24,9 @@ public class Result implements Comparable<Result> {
         this.cm = cm;
     }
 
+    /**
+     * @author Joachim
+     */
     public Result(Discipline disp, int milli, CompetitiveMember cm){
         this.disp = disp;
         this.milli = milli;
@@ -43,6 +54,9 @@ public class Result implements Comparable<Result> {
         return dist;
     }
 
+    /**
+     * @author Joachim
+     */
     public String getTime() {
         int min = milli/MIN_TO_MILLI;
         int sec = (milli % MIN_TO_MILLI)/SEC_TO_MILLI;
@@ -55,6 +69,9 @@ public class Result implements Comparable<Result> {
         return disp;
     }
 
+    /**
+     * @author Joachim
+     */
     @Override
     public int compareTo(Result o) {
         return Integer.compare(milli, o.milli);

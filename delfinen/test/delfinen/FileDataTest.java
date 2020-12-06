@@ -1,3 +1,6 @@
+package delfinen;
+
+import delfinen.FileData;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 

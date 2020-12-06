@@ -1,3 +1,5 @@
+package delfinen;
+
 public class ExerciseMember extends Member {
     /**
      * Method that determines the price for a member based on age.

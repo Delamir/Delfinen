@@ -1,3 +1,8 @@
+package delfinen;
+
+import delfinen.CompetitiveMember;
+import delfinen.Discipline;
+import delfinen.Tournament;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;

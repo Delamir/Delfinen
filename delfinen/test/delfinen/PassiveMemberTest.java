@@ -1,6 +1,8 @@
-import org.junit.jupiter.api.Test;
+package delfinen;
 
-import java.util.ArrayList;
+import delfinen.Member;
+import delfinen.PassiveMember;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 

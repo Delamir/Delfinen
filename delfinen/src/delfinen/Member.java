@@ -1,5 +1,10 @@
+package delfinen;
+
 import java.io.Serializable;
 
+/**
+ * @author Patrick
+ */
 public abstract class Member implements Serializable {
     private int age;
     private String name;
@@ -10,6 +15,9 @@ public abstract class Member implements Serializable {
     static final double PASSIVE_PRICE = 500;
     private boolean paymentStatus = true;
 
+    /**
+     * @author Patrick
+     */
     public Member(int age, String name) {
         this.age = age;
         this.name = name;
@@ -47,6 +55,9 @@ public abstract class Member implements Serializable {
         this.paymentStatus = paymentStatus;
     }
 
+    /**
+     * @author Patrick
+     */
     @Override
     public String toString() {
         return name;
