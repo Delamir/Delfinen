@@ -132,7 +132,7 @@ public class Cashier {
             if(m.isPaymentStatus())
                 members.add(m);
         }
-        Member m = (ScannerMethods.menuInput("Arrear list", "Pay arrears for member: ", arrearsMembers, true));
+        Member m = (ScannerMethods.menuInput("Arrear list", "Add member to arrears: ", members, true));
         if(m == null)
             return;
         arrearsMembers.add(m);
