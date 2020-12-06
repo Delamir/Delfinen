@@ -127,17 +127,16 @@ public class Cashier {
      * @author Patrick og Christian
      */
     public void addMemberToArrears() {
-        String name;
-
-        System.out.print("Add a member to the list of arrears: ");
-        name = ScannerMethods.stringInput();
-
-        for (Member m : memberList) {
-            if (m.getName().toLowerCase().contains(name.toLowerCase())) {
-                arrearsMembers.add(m);
-                m.setPaymentStatus(false);
-            }
+        ArrayList<Member> members = new ArrayList<>();
+        for(Member m : memberList){
+            if(m.isPaymentStatus())
+                members.add(m);
         }
+        Member m = (ScannerMethods.menuInput("Arrear list", "Pay arrears for member: ", arrearsMembers, true));
+        if(m == null)
+            return;
+        arrearsMembers.add(m);
+        m.setPaymentStatus(false);
     }
 
 
