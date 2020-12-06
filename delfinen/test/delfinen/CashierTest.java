@@ -8,6 +8,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CashierTest {
 
+    /**
+     * @author Patrick
+     */
     @Test
     void subscriptionOverviewTest() {
         Member m = new PassiveMember(22, "Bent");
@@ -25,6 +28,9 @@ class CashierTest {
         assertEquals(2,cashier.getArrearsMembers().size());
     }
 
+    /**
+     * @author Patrick
+     */
     @Test
     void payArrearsTest() {
         ScannerMethods.setIn("1\n");
@@ -42,6 +48,9 @@ class CashierTest {
         assertEquals(1, cashier.getArrearsMembers().size());
     }
 
+    /**
+     * @author Patrick
+     */
     @Test
     void addMemberToArrearsTest() {
         ScannerMethods.setIn("1\n");

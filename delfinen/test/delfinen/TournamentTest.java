@@ -12,6 +12,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class TournamentTest {
 
+    /**
+     * @author Sverri
+     */
     @Test
     void tournamentTest(){
         ArrayList<Discipline> disciplines = new ArrayList<>();
@@ -22,6 +25,9 @@ class TournamentTest {
         assertEquals("Lygten 37",tournament.getAddress());
     }
 
+    /**
+     * @author Sverri
+     */
     @Test
     void addParticipant() {
         ArrayList<Discipline> disciplines = new ArrayList<>();
@@ -37,6 +43,9 @@ class TournamentTest {
 
     }
 
+    /**
+     * @author Sverri
+     */
     @Test
     void testToString() {
         ArrayList<Discipline> disciplines = new ArrayList<>();

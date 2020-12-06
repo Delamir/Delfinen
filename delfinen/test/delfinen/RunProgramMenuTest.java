@@ -6,6 +6,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RunProgramMenuTest {
 
+    /**
+     * @author Sverri
+     */
     @Test
     void mainTest() {
 

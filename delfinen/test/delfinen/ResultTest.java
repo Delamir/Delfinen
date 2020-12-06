@@ -11,6 +11,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ResultTest {
 
+    /**
+     * @author Patrick og Joachim
+     */
     @Test
     void compareTo() {
 

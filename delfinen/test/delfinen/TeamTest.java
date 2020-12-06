@@ -11,6 +11,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class TeamTest {
 
+    /**
+     * @author Christian
+     */
     @Test
     void registerResult() {
         CompetitiveMember m = new CompetitiveMember(18,"Bo",new ArrayList<>(Collections.singletonList(Discipline.BACKSTROKE)));
@@ -29,6 +32,9 @@ class TeamTest {
 
     }
 
+    /**
+     * @author Joachim
+     */
     @Test
     void showTournamentsTest() {
         ArrayList<Tournament> a = new ArrayList<>();
@@ -40,6 +46,9 @@ class TeamTest {
         s.showTournaments();
     }
 
+    /**
+     * @author Joachim
+     */
     @Test
     void showMemberListTest() {
         ArrayList<CompetitiveMember> c = new ArrayList<>();

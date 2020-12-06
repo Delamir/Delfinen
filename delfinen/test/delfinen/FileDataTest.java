@@ -20,6 +20,9 @@ class FileDataTest {
         f.delete();
     }
 
+    /**
+     * @author Sverri og Patrick
+     */
     @Test
     void fileDataTest() {
         ArrayList<String> testData = new ArrayList<>();

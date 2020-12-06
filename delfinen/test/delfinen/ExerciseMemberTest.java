@@ -8,6 +8,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ExerciseMemberTest {
 
+    /**
+     * @author Patrick og Joachim
+     */
     @Test
     void exerciseMemberTest(){
         Member member1 = new ExerciseMember(10,"Hans");

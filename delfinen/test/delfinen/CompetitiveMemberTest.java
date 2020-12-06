@@ -10,6 +10,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CompetitiveMemberTest {
 
+    /**
+     * @author Christian
+     */
     @Test
     void createCompetitiveMemberTest() {
         CompetitiveMember cmJr = new CompetitiveMember(17, "Bent", new ArrayList<>());
