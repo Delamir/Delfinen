@@ -60,4 +60,7 @@ public class Tournament implements Serializable {
         return "Tournament: " + name + "\nDisciplines: " + disciplines +
                 ", address: " + address + ", date & time: " + dateTime;
     }
+    public ArrayList<Discipline> getDisciplines() {
+        return disciplines;
+    }
 }
