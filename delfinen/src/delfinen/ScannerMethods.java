@@ -1,6 +1,7 @@
 package delfinen;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 /**
@@ -56,15 +57,19 @@ public class ScannerMethods {
 
     public static <T> ArrayList<T> menuInputs(String title, String prefix, ArrayList<T> menuPoints) {
         ArrayList<T> listToReturn = new ArrayList<>();
+        ArrayList<T> listToChooseFrom = (ArrayList<T>) menuPoints.clone();
+
+
 
         boolean done = false;
         T t;
         while (!done) {
-            t = menuInput(title, prefix, menuPoints, true);
+            t = menuInput(title, prefix, listToChooseFrom, true);
             if (t == null) {
                 done = true;
             } else {
                 listToReturn.add(t);
+                listToChooseFrom.remove(t);
             }
         }
 
