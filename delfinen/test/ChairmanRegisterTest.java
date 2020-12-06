@@ -7,6 +7,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ChairmanRegisterTest {
 
+    /**
+     * Sverri og Joachim
+     */
     @Test
     void registerMemberTest() {
         ArrayList<Member> memberList = new ArrayList<>();
