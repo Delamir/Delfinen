@@ -10,8 +10,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ChairmanRegisterTest {
 
-    private static InputStream sysIn;
-    
+    /**
+     * Sverri og Joachim
+     */
     @Test
     void registerMemberTest() {
         ScannerMethods.setIn("1\n20\n1\n1\n1\n7\n");

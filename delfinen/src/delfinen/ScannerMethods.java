@@ -22,6 +22,7 @@ public class ScannerMethods {
      * @return a legal input from the user
      * @author Christian
      */
+
     public static double validNumberInput(double numberFrom, double numberTo, String errorMessage) {
         boolean validChoice = false;
         double legalNumber = -1;
