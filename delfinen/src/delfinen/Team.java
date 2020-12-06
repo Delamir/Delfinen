@@ -12,7 +12,7 @@ public class Team {
     private final String MENU_HEADER = "Register tournament";
     private final String LEAD_TEXT = "Please choose: ";
     private final String[] MENU_POINT = {"1. Register tournament", "2. Show swim results",
-            "3. Appoint tournament participants", "4. Register swimming results", "5. Show tournaments", "9. To exit"};
+            "3. Appoint tournament participants", "4. Register swimming results", "5. Show tournaments","6. Show memberlist", "9. To exit"};
 
     private ArrayList<CompetitiveMember> memberList;
     private ArrayList<Tournament> tournamentList;
@@ -48,6 +48,9 @@ public class Team {
                     break;
                 case 5:
                     showTournaments();
+                    break;
+                case 6:
+                    showMemberList();
                     break;
                 case 9:
                     logOut = true;
