@@ -68,26 +68,29 @@ public class Team {
 
     public void registerTournament() {
 
-        String name, address;
-        ArrayList<Discipline> disciplines = ScannerMethods.menuInputs("Discipline", "Choose:", Discipline.asList());
-        if (disciplines.size() == 0)
-            return;
-        System.out.print("Write \"exit\" to exit. ");
-        System.out.print("Enter name of the tournament: ");
-        name = ScannerMethods.stringInput();
-        if (name.equalsIgnoreCase("Exit"))
-            return;
-        System.out.print("Enter address of the tournament: ");
-        address = ScannerMethods.stringInput();
-
         int year = 0;
         int month = 0;
         int day = 0;
         int hour = 0;
         int min = 0;
+        int maxYear = 10;
         LocalDateTime time = null;
-
+        String name, address;
         boolean valid = false;
+
+        ArrayList<Discipline> disciplines = ScannerMethods.menuInputs("Discipline", "Choose:", Discipline.asList());
+        if (disciplines.size() == 0) {
+            return;
+        }
+        System.out.print("Write \"exit\" to exit. ");
+        System.out.print("Enter name of the tournament: ");
+        name = ScannerMethods.stringInput();
+        if (name.equalsIgnoreCase("Exit")) {
+            return;
+        }
+        System.out.print("Enter address of the tournament: ");
+        address = ScannerMethods.stringInput();
+
         while (!valid) {
             System.out.print("Enter year: ");
             year = (int) ScannerMethods.validNumberInput(LocalDate.now().getYear(), Integer.MAX_VALUE, "Invalid year. Please try again: ");
@@ -101,7 +104,7 @@ public class Team {
             min = (int) ScannerMethods.validNumberInput(0, TimeUnit.HOURS.toMinutes(1) - 1, "Invalid minute. Please try again: ");
             ScannerMethods.scannerBug();
             time = LocalDateTime.of(LocalDate.of(year, month, day), LocalTime.of(hour, min));
-            if (time.compareTo(LocalDateTime.now()) > 0) {
+            if (time.compareTo(LocalDateTime.now()) > 0 && year < maxYear) {
                 valid = true;
             } else {
                 System.out.println("\nThe date has already passed try again");

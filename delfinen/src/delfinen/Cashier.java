@@ -114,7 +114,7 @@ public class Cashier {
     public void payArrears() {
 
         System.out.println("Remove a member from the arrears list: ");
-        Member m = (ScannerMethods.menuInput("Arrear list", "Pay arrears for member: ", arrearsMembers, true));
+        Member m = (ScannerMethods.menuInput("Arrears list", "Pay arrears for member: ", arrearsMembers, true));
         if (m == null)
             return;
         arrearsMembers.remove(m);
