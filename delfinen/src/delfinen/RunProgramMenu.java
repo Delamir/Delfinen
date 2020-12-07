@@ -36,7 +36,7 @@ public class RunProgramMenu {
         boolean logOut = false;
 
         while (!logOut) {
-            switch (ScannerMethods.mainMenuInput(MENU_HEADER, LEAD_TEXT, MENU_POINT)) {
+            switch (InputMethods.mainMenuInput(MENU_HEADER, LEAD_TEXT, MENU_POINT)) {
                 case 1:
                     new ChairmanRegister(memberList).run();
                     break;
@@ -72,7 +72,7 @@ public class RunProgramMenu {
                     teamListSenior.add((CompetitiveMember) m);
             }
         }
-        switch (ScannerMethods.mainMenuInput("Delfinen Teams", "Please choose: ", new String[]{"1. Junior Team", "2. Senior Team"})) {
+        switch (InputMethods.mainMenuInput("Delfinen Teams", "Please choose: ", new String[]{"1. Junior Team", "2. Senior Team"})) {
             case 1 -> new Team(teamListJunior, tournamentList).run();
             case 2 -> new Team(teamListSenior, tournamentList).run();
         }

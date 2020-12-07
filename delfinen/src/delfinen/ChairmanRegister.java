@@ -24,7 +24,7 @@ public class ChairmanRegister {
     public void showMenu() {
         boolean logOut = false;
         while (!logOut) {
-            switch (ScannerMethods.mainMenuInput(MENU_HEADER,LEAD_TEXT,MENU_POINT)) {
+            switch (InputMethods.mainMenuInput(MENU_HEADER,LEAD_TEXT,MENU_POINT)) {
                 case 1:
                     memberList.add(registerMember());
                     break;
@@ -58,19 +58,19 @@ public class ChairmanRegister {
 
         System.out.println("Register new member");
         System.out.print("Enter the name: ");
-        name = ScannerMethods.stringInput();
+        name = InputMethods.stringInput();
         System.out.print("Enter age: ");
-        age = (int) ScannerMethods.validNumberInput(validAgeMin, validAgeMax, "Not a valid age, please input a valid age: ");
+        age = (int) InputMethods.validNumberInput(validAgeMin, validAgeMax, "Not a valid age, please input a valid age: ");
         System.out.print("Choose 1 to be an ACTIVE member, choose 2 to be a PASSIVE member: ");
-        activePassive = (int) ScannerMethods.validNumberInput(optionOne, optionTwo, "Not a valid number: ");
+        activePassive = (int) InputMethods.validNumberInput(optionOne, optionTwo, "Not a valid number: ");
 
         if (activePassive == optionOne) {
             System.out.println("For a COMPETITIVE membership press 1");
             System.out.println("For an EXERCISE membership press 2");
             System.out.print("Make your choice: ");
-            exerciseCompetitive = (int) ScannerMethods.validNumberInput(optionOne, optionTwo, "Not a valid choice: ");
+            exerciseCompetitive = (int) InputMethods.validNumberInput(optionOne, optionTwo, "Not a valid choice: ");
             if (exerciseCompetitive == optionOne) {
-                competitiveDisciplines = ScannerMethods.menuInputs("Choose your desired diciplines",LEAD_TEXT,Discipline.asList());
+                competitiveDisciplines = InputMethods.menuInputs("Choose your desired diciplines",LEAD_TEXT,Discipline.asList());
                 return new CompetitiveMember(age, name, competitiveDisciplines);
             } else {
                 return new ExerciseMember(age, name);

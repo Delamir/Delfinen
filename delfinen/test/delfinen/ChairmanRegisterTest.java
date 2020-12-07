@@ -1,9 +1,7 @@
 package delfinen;
 
-import delfinen.*;
 import org.junit.jupiter.api.Test;
 
-import java.io.InputStream;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -15,7 +13,7 @@ class ChairmanRegisterTest {
      */
     @Test
     void registerMemberTest() {
-        ScannerMethods.setIn("1\n20\n1\n1\n1\n6\n");
+        InputMethods.setIn("1\n20\n1\n1\n1\n6\n");
         ArrayList<Member> memberList = new ArrayList<>();
         ChairmanRegister chairMan = new ChairmanRegister(memberList);
 

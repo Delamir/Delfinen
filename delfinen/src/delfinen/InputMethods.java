@@ -10,7 +10,7 @@ import java.util.Scanner;
  * @author Sverri & Christian
  */
 
-public class ScannerMethods {
+public class InputMethods {
 
     private static Scanner in = new Scanner(System.in);
 
@@ -49,12 +49,24 @@ public class ScannerMethods {
      * A method that return a String from use input
      *
      * @return an input string
-     * @author Sverri
+     * @author Christian
      */
     public static String stringInput() {
         return in.nextLine();
     }
 
+    /**
+     * @author Sverri
+     */
+    public static int mainMenuInput(String title, String prefix, String[] menuPoints) {
+        Menu menu = new Menu(title, prefix, menuPoints, in);
+        menu.printMenu();
+        return menu.readChoice();
+    }
+
+    /**
+     * @author Sverri
+     */
     public static <T> ArrayList<T> menuInputs(String title, String prefix, ArrayList<T> menuPoints) {
         ArrayList<T> listToReturn = new ArrayList<>();
         ArrayList<T> listToChooseFrom = (ArrayList<T>) menuPoints.clone();
@@ -72,15 +84,6 @@ public class ScannerMethods {
         }
 
         return listToReturn;
-    }
-
-    /**
-     * @author Sverri
-     */
-    public static int mainMenuInput(String title, String prefix, String[] menuPoints) {
-        Menu menu = new Menu(title, prefix, menuPoints, in);
-        menu.printMenu();
-        return menu.readChoice();
     }
 
     /**

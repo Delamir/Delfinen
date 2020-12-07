@@ -42,7 +42,7 @@ public class Cashier {
     public void showMenu() {
 
         while (!logOut) {
-            switch (ScannerMethods.mainMenuInput(MAIN_MENU_HEADER, LEAD_TEXT, MAIN_MENU_POINT)) {
+            switch (InputMethods.mainMenuInput(MAIN_MENU_HEADER, LEAD_TEXT, MAIN_MENU_POINT)) {
                 case 1:
                     subscriptionOverview();
                     break;
@@ -80,7 +80,7 @@ public class Cashier {
      */
     public void arrears() {
         while (!logOut) {
-            switch (ScannerMethods.mainMenuInput(SUB_MENU_HEADER, LEAD_TEXT, SUB_MENU_POINT)) {
+            switch (InputMethods.mainMenuInput(SUB_MENU_HEADER, LEAD_TEXT, SUB_MENU_POINT)) {
                 case 1:
                     payArrears();
                     break;
@@ -114,7 +114,7 @@ public class Cashier {
     public void payArrears() {
 
         System.out.println("Remove a member from the arrears list: ");
-        Member m = (ScannerMethods.menuInput("Arrears list", "Pay arrears for member: ", arrearsMembers, true));
+        Member m = (InputMethods.menuInput("Arrears list", "Pay arrears for member: ", arrearsMembers, true));
         if (m == null)
             return;
         arrearsMembers.remove(m);
@@ -132,7 +132,7 @@ public class Cashier {
             if(m.isPaymentStatus())
                 members.add(m);
         }
-        Member m = (ScannerMethods.menuInput("Member list", "Add member to arrears: ", members, true));
+        Member m = (InputMethods.menuInput("Member list", "Add member to arrears: ", members, true));
         if(m == null)
             return;
         arrearsMembers.add(m);

@@ -2,7 +2,7 @@ package delfinen;
 
 import org.junit.jupiter.api.Test;
 
-class ScannerMethodsTest {
+class InputMethodsTest {
 
     /**
      * @author Joachim og Sverri

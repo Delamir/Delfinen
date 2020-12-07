@@ -24,7 +24,7 @@ class CashierTest {
 
         Cashier cashier = new Cashier(members);
         cashier.showMembersInArrears();
-        ScannerMethods.setIn("1\n");
+        InputMethods.setIn("1\n");
         assertEquals(2,cashier.getArrearsMembers().size());
     }
 
@@ -33,7 +33,7 @@ class CashierTest {
      */
     @Test
     void payArrearsTest() {
-        ScannerMethods.setIn("1\n");
+        InputMethods.setIn("1\n");
         Member m = new PassiveMember(22, "Bent");
         Member m1 = new CompetitiveMember(50, "Karen", new ArrayList<>());
         ArrayList<Member> members = new ArrayList<>();
@@ -53,7 +53,7 @@ class CashierTest {
      */
     @Test
     void addMemberToArrearsTest() {
-        ScannerMethods.setIn("1\n");
+        InputMethods.setIn("1\n");
         Member m2 = new PassiveMember(30, "Bodil");
         Member m = new PassiveMember(22, "Bent");
         Member m1 = new CompetitiveMember(50, "Karen", new ArrayList<>());

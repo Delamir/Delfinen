@@ -1,6 +1,5 @@
 package delfinen;
 
-import delfinen.*;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
@@ -19,7 +18,7 @@ class TeamTest {
         CompetitiveMember m = new CompetitiveMember(18,"Bo",new ArrayList<>(Collections.singletonList(Discipline.BACKSTROKE)));
         Team t = new Team(new ArrayList<>(Collections.singletonList(m)), null);
 
-        ScannerMethods.setIn("1\n1\n10\n10\n10\n");
+        InputMethods.setIn("1\n1\n10\n10\n10\n");
 
         t.registerResult();
 
@@ -42,7 +41,7 @@ class TeamTest {
 
         Team team = new Team(new ArrayList<>(), new ArrayList<>());
 
-        ScannerMethods.setIn("1\n6\nAssdaq\nBurmeistersgade 5, 1429 KBH K\n2021\n02\n29\n28\n10\n2\n");
+        InputMethods.setIn("1\n6\nAssdaq\nBurmeistersgade 5, 1429 KBH K\n2021\n02\n29\n28\n10\n2\n");
         team.registerTournament();
 
         Tournament t = new Tournament(null, d, "Assdaq", "Burmeistersgade 5, 1429 KBH K");
@@ -95,7 +94,7 @@ class TeamTest {
         c.add(new CompetitiveMember(20, "Sverri", d));
         t.add(new Tournament(null, d, "Assdaq", "Burmeistersgade 5, 1429 KBH K"));
 
-        ScannerMethods.setIn("1\n1\n1\n");
+        InputMethods.setIn("1\n1\n1\n");
         Team q = new Team(c, t);
         q.appointParticipant();
 
