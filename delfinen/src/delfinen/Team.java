@@ -75,7 +75,6 @@ public class Team {
         int day = 0;
         int hour = 0;
         int min = 0;
-        int maxYear = 10;
         LocalDateTime time = null;
         String name, address;
         boolean valid = false;
@@ -85,7 +84,7 @@ public class Team {
             return;
         }
         System.out.print("Write \"exit\" to exit. ");
-        System.out.print("Enter name of the tournament: ");
+        System.out.print("\nEnter name of the tournament: ");
         name = ScannerMethods.stringInput();
         if (name.equalsIgnoreCase("Exit")) {
             return;
