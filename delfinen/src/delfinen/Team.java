@@ -161,7 +161,6 @@ public class Team {
         Discipline discipline;
         int min, sec, milli;
 
-
         member = ScannerMethods.menuInput("Member", "Choose member:", memberList, true);
         if (member == null)
             return;
