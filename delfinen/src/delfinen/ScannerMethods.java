@@ -135,4 +135,12 @@ public class ScannerMethods {
         in = new Scanner(input);
 
     }
+
+    /**
+     * A method for scanner bug
+     * @author Christian
+     */
+    public static void scannerBug() {
+        in.nextLine();
+    }
 }

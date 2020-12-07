@@ -72,12 +72,12 @@ public class Team {
         ArrayList<Discipline> disciplines = ScannerMethods.menuInputs("Discipline", "Choose:", Discipline.asList());
         if (disciplines.size() == 0)
             return;
-        System.out.println("Enter name of the tournament: ");
-        System.out.println("Write \"exit\" to exit. ");
+        System.out.print("Write \"exit\" to exit. ");
+        System.out.print("Enter name of the tournament: ");
         name = ScannerMethods.stringInput();
         if (name.equalsIgnoreCase("Exit"))
             return;
-        System.out.println("Enter address of the tournament: ");
+        System.out.print("Enter address of the tournament: ");
         address = ScannerMethods.stringInput();
 
         int year = 0;
@@ -89,16 +89,17 @@ public class Team {
 
         boolean valid = false;
         while (!valid) {
-            System.out.println("Enter year: ");
+            System.out.print("Enter year: ");
             year = (int) ScannerMethods.validNumberInput(LocalDate.now().getYear(), Integer.MAX_VALUE, "Invalid year. Please try again: ");
-            System.out.println("Enter month: ");
+            System.out.print("Enter month: ");
             month = (int) ScannerMethods.validNumberInput(1, Month.values().length, "Invalid month. Please try again: ");
-            System.out.println("Enter day: ");
+            System.out.print("Enter day: ");
             day = (int) ScannerMethods.validNumberInput(1, Month.of(month).length(year % 4 == 0), "Invalid day. Please try again: ");
-            System.out.println("Enter hour: ");
+            System.out.print("Enter hour: ");
             hour = (int) ScannerMethods.validNumberInput(0, TimeUnit.DAYS.toHours(1) - 1, "Invalid hour. Please try again: ");
-            System.out.println("Enter minute: ");
+            System.out.print("Enter minute: ");
             min = (int) ScannerMethods.validNumberInput(0, TimeUnit.HOURS.toMinutes(1) - 1, "Invalid minute. Please try again: ");
+            ScannerMethods.scannerBug();
             time = LocalDateTime.of(LocalDate.of(year, month, day), LocalTime.of(hour, min));
             if (time.compareTo(LocalDateTime.now()) > 0) {
                 valid = true;
@@ -155,12 +156,13 @@ public class Team {
         discipline = ScannerMethods.menuInput("Discipline", "Choose discipline", member.getDisciplines(), true);
         if (discipline == null)
             return;
-        System.out.println("Enter minutes: ");
+        System.out.print("Enter minutes: ");
         min = (int) ScannerMethods.validNumberInput(0, TimeUnit.HOURS.toMinutes(1) - 1, "Invalid minute. Please try again: ");
-        System.out.println("Enter seconds: ");
+        System.out.print("Enter seconds: ");
         sec = (int) ScannerMethods.validNumberInput(0, TimeUnit.MINUTES.toSeconds(1) - 1, "Invalid second. Please try again: ");
-        System.out.println("Enter milliseconds: ");
+        System.out.print("Enter milliseconds: ");
         milli = (int) ScannerMethods.validNumberInput(0, TimeUnit.SECONDS.toMillis(1) - 1, "Invalid milliseconds. Please try again: ");
+        ScannerMethods.scannerBug();
         System.out.printf("The time was: %02d" + ":" + "%02d" + ":" + "%04d\n", min, sec, milli);
         System.out.printf("in the discipline %s", discipline);
         member.addResults(discipline, min, sec, milli);
