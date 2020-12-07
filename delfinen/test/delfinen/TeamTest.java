@@ -19,7 +19,7 @@ class TeamTest {
         CompetitiveMember m = new CompetitiveMember(18,"Bo",new ArrayList<>(Collections.singletonList(Discipline.BACKSTROKE)));
         Team t = new Team(new ArrayList<>(Collections.singletonList(m)), null);
 
-        ScannerMethods.setIn("1\n1\n100\n10\n10\n10\n");
+        ScannerMethods.setIn("1\n1\n10\n10\n10\n");
 
         t.registerResult();
 

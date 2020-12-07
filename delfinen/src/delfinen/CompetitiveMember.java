@@ -48,11 +48,13 @@ public class CompetitiveMember extends Member {
             for (Result r : results) {
                 if (r.getDisp().equals(disp)) {
                     if (newResult.compareTo(r) < 0) {
-                        System.out.println("WOW!!!!!!!!!! You beat your best result");
+                        System.out.println("\nWOW!!!!!!!!!! You beat your best result");
                         results.remove(r);
                         results.add(newResult);
-                    } else {
-                        System.out.println("Previous result was better!");
+                    }else if (newResult.compareTo(r) == 0){
+                        System.out.println("\nSame time as your record, that is amazing the exact same millisecond");
+                    }else{
+                        System.out.println("\nPrevious result was better!");
                     }
                     return;
                 }

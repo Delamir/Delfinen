@@ -59,8 +59,6 @@ public class ScannerMethods {
         ArrayList<T> listToReturn = new ArrayList<>();
         ArrayList<T> listToChooseFrom = (ArrayList<T>) menuPoints.clone();
 
-
-
         boolean done = false;
         T t;
         while (!done) {
@@ -79,7 +77,7 @@ public class ScannerMethods {
     /**
      * @author Sverri
      */
-    public static int mainMenuInput(String title, String prefix, String[] menuPoints){
+    public static int mainMenuInput(String title, String prefix, String[] menuPoints) {
         Menu menu = new Menu(title, prefix, menuPoints, in);
         menu.printMenu();
         return menu.readChoice();
@@ -92,8 +90,9 @@ public class ScannerMethods {
 
         Menu menu = new Menu(title, prefix, listAsStringArray(menuPoints, hasExit), in);
         int choice = getChoice(menu, menuPoints.size() + (hasExit ? 1 : 0));
-        if (choice-1 == menuPoints.size() && hasExit)
+        if (choice - 1 == menuPoints.size() && hasExit)
             return null;
+
         return menuPoints.get(choice - 1);
     }
 
@@ -103,7 +102,7 @@ public class ScannerMethods {
     private static <T> String[] listAsStringArray(ArrayList<T> list, boolean hasExit) {
         String[] arrayToReturn = new String[list.size() + (hasExit ? 1 : 0)];
 
-        for (int i = 0; i < arrayToReturn.length-(hasExit ? 1 : 0); i++)
+        for (int i = 0; i < arrayToReturn.length - (hasExit ? 1 : 0); i++)
             arrayToReturn[i] = (i + 1) + ". " + list.get(i).toString();
         if (hasExit)
             arrayToReturn[arrayToReturn.length - 1] = arrayToReturn.length + ". Exit";
@@ -121,26 +120,21 @@ public class ScannerMethods {
         boolean validChoice = false;
         while (!validChoice) {
             choice = menu.readChoice();
-            if (choice > 0 && choice <= size)
+            if (choice > 0 && choice <= size) {
                 validChoice = true;
+            } else
+                System.out.println("not a valid choice, please try again");
         }
         return choice;
     }
 
     /**
      * for testing purposes
+     *
      * @author Sverri
      */
-    public static void setIn(String input){
+    public static void setIn(String input) {
         in = new Scanner(input);
 
-    }
-
-    /**
-     * A method for scanner bug
-     * @author Christian
-     */
-    public static void scannerBug() {
-        in.nextLine();
     }
 }

@@ -95,7 +95,7 @@ public class Team {
 
         while (!valid) {
             System.out.print("Enter year: ");
-            year = (int) ScannerMethods.validNumberInput(LocalDate.now().getYear(), Integer.MAX_VALUE, "Invalid year. Please try again: ");
+            year = (int) ScannerMethods.validNumberInput(LocalDate.now().getYear(), LocalDate.now().getYear()+100, "Invalid year. Please try again: ");
             System.out.print("Enter month: ");
             month = (int) ScannerMethods.validNumberInput(1, Month.values().length, "Invalid month. Please try again: ");
             System.out.print("Enter day: ");
@@ -104,9 +104,8 @@ public class Team {
             hour = (int) ScannerMethods.validNumberInput(0, TimeUnit.DAYS.toHours(1) - 1, "Invalid hour. Please try again: ");
             System.out.print("Enter minute: ");
             min = (int) ScannerMethods.validNumberInput(0, TimeUnit.HOURS.toMinutes(1) - 1, "Invalid minute. Please try again: ");
-            ScannerMethods.scannerBug();
             time = LocalDateTime.of(LocalDate.of(year, month, day), LocalTime.of(hour, min));
-            if (time.compareTo(LocalDateTime.now()) > 0 && year < maxYear) {
+            if (time.compareTo(LocalDateTime.now()) > 0) {
                 valid = true;
             } else {
                 System.out.println("\nThe date has already passed try again");
@@ -136,7 +135,15 @@ public class Team {
         tournament = ScannerMethods.menuInput("Tournament", "Choose tournament:", tournamentList, true);
         if (tournament == null)
             return;
-        members = ScannerMethods.menuInputs("Member", "Choose member:", memberList);
+        ArrayList<CompetitiveMember> listToChooseFrom = new ArrayList<>();
+        for (CompetitiveMember cm : memberList){
+            for(Discipline d : tournament.getDisciplines())
+            {
+                if(cm.getDisciplines().contains(d))
+                    listToChooseFrom.add(cm);
+            }
+        }
+        members = ScannerMethods.menuInputs("Members", "Choose member:", listToChooseFrom);
         if (members.size() == 0)
             return;
         for (CompetitiveMember m : members)
@@ -167,7 +174,6 @@ public class Team {
         sec = (int) ScannerMethods.validNumberInput(0, TimeUnit.MINUTES.toSeconds(1) - 1, "Invalid second. Please try again: ");
         System.out.print("Enter milliseconds: ");
         milli = (int) ScannerMethods.validNumberInput(0, TimeUnit.SECONDS.toMillis(1) - 1, "Invalid milliseconds. Please try again: ");
-        ScannerMethods.scannerBug();
         System.out.printf("The time was: %02d" + ":" + "%02d" + ":" + "%04d\n", min, sec, milli);
         System.out.printf("in the discipline %s", discipline);
         member.addResults(discipline, min, sec, milli);
