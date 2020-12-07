@@ -126,7 +126,7 @@ public class InputMethods {
             if (choice > 0 && choice <= size) {
                 validChoice = true;
             } else
-                System.out.println("not a valid choice, please try again");
+                System.out.print("Not a valid choice, please try again: ");
         }
         return choice;
     }

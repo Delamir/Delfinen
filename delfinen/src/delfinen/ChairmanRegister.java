@@ -52,9 +52,8 @@ public class ChairmanRegister {
         int optionTwo = 2;
         int activePassive;
         int exerciseCompetitive;
-        boolean notDone = true;
         String name;
-        ArrayList<Discipline> competitiveDisciplines = new ArrayList<>();
+        ArrayList<Discipline> competitiveDisciplines;
 
         System.out.println("Register new member");
         System.out.print("Enter the name: ");
