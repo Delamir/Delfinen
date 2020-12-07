@@ -61,7 +61,6 @@ public class Team {
         int day = 0;
         int hour = 0;
         int min = 0;
-        int maxYear = 10;
         LocalDateTime time = null;
         String name, address;
         boolean valid = false;
