@@ -33,32 +33,18 @@ public class Team {
 
         while (!logOut) {
 
-            switch (InputMethods.mainMenuInput(MENU_HEADER,LEAD_TEXT,MENU_POINT)) {
-                case 1:
-                    registerTournament();
-                    break;
-                case 2:
-                    new Ranking(memberList).showResults();
-                    break;
-                case 3:
-                    appointParticipant();
-                    break;
-                case 4:
-                    registerResult();
-                    break;
-                case 5:
-                    showTournaments();
-                    break;
-                case 6:
-                    showMemberList();
-                    break;
-                case 9:
+            switch (InputMethods.mainMenuInput(MENU_HEADER, LEAD_TEXT, MENU_POINT)) {
+                case 1 -> registerTournament();
+                case 2 -> new Ranking(memberList).showResults();
+                case 3 -> appointParticipant();
+                case 4 -> registerResult();
+                case 5 -> showTournaments();
+                case 6 -> showMemberList();
+                case 9 -> {
                     logOut = true;
                     System.out.println("Returning to main menu");
-                    break;
-                default:
-                    System.out.print("Not a valid menu point, please try again: ");
-
+                }
+                default -> System.out.print("Not a valid menu point, please try again: ");
             }
         }
     }
@@ -85,7 +71,7 @@ public class Team {
             return;
         }
         System.out.print("Write \"exit\" to exit. ");
-        System.out.print("Enter name of the tournament: ");
+        System.out.print("\nEnter name of the tournament: ");
         name = InputMethods.stringInput();
         if (name.equalsIgnoreCase("Exit")) {
             return;
@@ -161,7 +147,6 @@ public class Team {
         Discipline discipline;
         int min, sec, milli;
 
-
         member = InputMethods.menuInput("Member", "Choose member:", memberList, true);
         if (member == null)
             return;
@@ -192,10 +177,6 @@ public class Team {
 
     public void run() {
         showMenu();
-    }
-
-    public ArrayList<CompetitiveMember> getMemberList() {
-        return memberList;
     }
 
     public ArrayList<Tournament> getTournamentList() {
