@@ -9,10 +9,10 @@ import java.util.concurrent.TimeUnit;
  */
 
 public class Team {
-    private final String MENU_HEADER = "Register tournament";
+    private final String MENU_HEADER = "Menu";
     private final String LEAD_TEXT = "Please choose: ";
     private final String[] MENU_POINT = {"1. Register tournament", "2. Show swim results",
-            "3. Appoint tournament participants", "4. Register swimming results", "5. Show tournaments","6. Show memberlist", "9. To exit"};
+            "3. Appoint tournament participants", "4. Register swimming results", "5. Show tournaments","6. Show list of members", "9. To exit"};
 
     private ArrayList<CompetitiveMember> memberList;
     private ArrayList<Tournament> tournamentList;
@@ -54,6 +54,8 @@ public class Team {
                     break;
                 case 9:
                     logOut = true;
+                    System.out.println("Returning to main menu");
+                    break;
                 default:
                     System.out.print("Not a valid menu point, please try again: ");
 
@@ -150,7 +152,7 @@ public class Team {
 
         CompetitiveMember member;
         Discipline discipline;
-        int dist, min, sec, milli;
+        int min, sec, milli;
 
 
         member = ScannerMethods.menuInput("Member", "Choose member:", memberList, true);
